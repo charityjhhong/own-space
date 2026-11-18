@@ -11,7 +11,9 @@
 
 **The room you can't change, made your own.** Own Space redesigns your dorm, rental or hotel room around you on Meta Quest, with your hands only, while your real desk stays real and within reach.
 
-**688 EditMode tests · 72 Hz target · hands only, no controllers · AI places catalog pieces only, never camera images**
+[Devpost](https://devpost.com/software/own-space)
+
+**689 EditMode tests · 72 Hz target · hands only, no controllers · AI places catalog pieces only, never camera images**
 
 Scan your room and mark the part you use: your desk stays real and within reach. Everything else becomes a virtual room you design with your hands: walls, floor, furniture and light. Your real desk or bed keeps its place and height under a new look. Then keep the room running in the background while you work on your laptop, watch YouTube, or use Meta's virtual displays. Save the room, and open it again anywhere, at a hotel desk or in a dorm.
 
