@@ -89,7 +89,7 @@ Add the Invite URL as a second link once the 1.0.0 upload passes.
 **What Meta VR capabilities did you use?**
 
 ```
-Passthrough (full-room mixed reality with a tone-matched virtual room around a real zone), Mixed Reality Utility Kit / Scene (walls, floor, ceiling, windows, doors and furniture volumes with their labels), hand tracking (pinch, poke, grab and a filtered hand ray; hands only, no controllers), scene anchors for furniture (a saved room is rebuilt around the real desk or bed it finds), and OpenXR focus handling so the room keeps running behind the Meta menu, YouTube and the laptop virtual display.
+Passthrough (full-room mixed reality with a tone-matched virtual room around a real zone), Mixed Reality Utility Kit / Scene (walls, floor, ceiling, windows, doors and furniture volumes with their labels), hand tracking (pinch, poke, grab and a filtered hand ray; hands only, no controllers), scene anchors for furniture (a saved room is rebuilt around the real desk or bed it finds), and OpenXR focus handling so the room keeps running behind the Meta menu, YouTube and Meta's virtual displays.
 ```
 
 **Describe how Hand Interactions are implemented**
@@ -107,7 +107,7 @@ Own Space is hands only; no controller is ever needed.
 **What makes you excited about the future of VR?** (150 words)
 
 ```
-For years VR asked you to leave your room. Mixed reality lets you stay, and change what's around you. That matters most for people who can't change their rooms at all: students in shared dorms, renters, people who travel for work. A headset can give them a space that feels like theirs, without a hammer or a landlord's permission, while the things they actually use (a desk, a laptop, a cup of coffee) stay real and within reach.
+For years VR asked you to leave your room. Mixed reality lets you stay, and change what's around you. That matters most for people who can't change their rooms at all: students in shared dorms, renters, people who travel for work. A headset can give them a space that feels like theirs, without a hammer or a landlord's permission, while the things they actually use (a desk, a cup of coffee) stay real and within reach.
 
 We're excited for the moment when this is ordinary: you sit down at any desk, and your own room appears around it, the way your phone's home screen follows you everywhere. Hands-only input, room understanding and better passthrough are already close. The next step is making these spaces personal, shareable, safe in shared rooms and comfortable, so they support real study and rest instead of replacing time away from the screen.
 ```
