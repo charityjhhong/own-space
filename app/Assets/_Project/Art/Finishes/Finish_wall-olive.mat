@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Finish_wall-olive
+  m_Shader: {fileID: 4800000, guid: 0dec53aa166bc4a5ca38f5000d7b581f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _USETEX_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 5fce42d661ba448bfaece4fad6b69a6d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: aaff0692f3fd84d40b749b827ebc7b5e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughMap:
+        m_Texture: {fileID: 2800000, guid: 77d1a5e2fbc194d5ab7b1609cb502c40, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Gain: 1.4286
+    - _Line: 0.03
+    - _NormalStrength: 1
+    - _Pattern: 0
+    - _Scale: 0.3
+    - _TexScale: 1.2
+    - _UseTex: 1
+    m_Colors:
+    - _AccentColor: {r: 0.36862746, g: 0.41960785, b: 0.24705882, a: 1}
+    - _BaseColor: {r: 0.36862746, g: 0.41960785, b: 0.24705882, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,26 @@
+{
+ "id": "coffee-table-night-city-01",
+ "slug": "modern_coffee_table_01",
+ "tris": 4504,
+ "flat": false,
+ "materials": [
+  {
+   "name": "modern_coffee_table_01",
+   "normal": "Assets/_Project/Art/Models/modern_coffee_table_01/modern_coffee_table_01_modern_coffee_table_01_n.jpg",
+   "rough": "Assets/_Project/Art/Models/modern_coffee_table_01/modern_coffee_table_01_modern_coffee_table_01_r.jpg",
+   "meanLum": 0.3475,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/modern_coffee_table_01/modern_coffee_table_01_modern_coffee_table_01.jpg",
+   "mean": [
+    0.4306,
+    0.3341,
+    0.2363
+   ]
+  }
+ ]
+}

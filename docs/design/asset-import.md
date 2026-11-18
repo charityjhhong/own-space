@@ -1,0 +1,11 @@
+# Re-running the CC0 model import
+
+What was imported and under which license: `asset-licenses.md`. Which models were approved: `asset-shortlist.md`.
+
+1. **Download** (CC0 only, after the human approves; see `asset-sources.md`). For each Poly Haven slug, read `https://api.polyhaven.com/files/<slug>` (send a User-Agent), take `gltf` → `1k` → `gltf`, and save the `.gltf` plus every file in its `include` map into `<polyhaven-dir>/<slug>/`. Kenney: open https://kenney.nl/assets/furniture-kit, use "Continue without donating" (it calls `/download-link/<id>`), unzip into `<kenney-dir>`.
+2. **Convert:** `pip install --user trimesh==5.2.0 fast-simplification==0.2.0 numpy==2.3.5 pillow==12.0.0` (the versions used for #115), then `python3 docs/design/convert_models.py <repo> <polyhaven-dir> <kenney-dir> [spread-limit=1.4] [result.json]`. It picks the best-fitting model per catalog item (per-axis scale, axis ratios within 1.4), puts the pivot at the bottom center, turns seats and beds so the back is at -Z, decimates models over 5,000 triangles to at most 4,800 (flat colour per material), and writes `Art/Models/<source>/<id>.obj` and `<id>.model.json`. The optional `result.json` path receives the chosen model per item (nothing is written outside `Art/Models` otherwise). The mapping tables are at the top of the script.
+3. **Build:** run `CatalogPrefabBuilder.BuildBatch` (`Content/README.md`). Then set `isPlaceholder: false` and `license: "CC0-1.0"` in `catalog.json` for the items the script printed as `USE`, and add rows to `asset-licenses.md`.
+
+## Flat Kenney models with a PBR set (box-projected UVs)
+
+The Kenney models have one flat colour per material and no UVs. `python3 docs/design/add_box_uvs.py <obj>...` rewrites an OBJ with box-projected UVs in metres (each triangle projected along the axis its normal points to most, vertices split per triangle). `CatalogPrefabBuilder.FlatPbr` then maps a model and material name to a tiling CC0 set (wood, fabric, and later metal and foliage), sets the tiling to 1 / tile size so the texture is at true scale, and tints it per style. Done so far: `bedSingle` (wood frame = birch or dark planks, mattress = wool, sheet and pillow = linen). No new files were downloaded for the beds, so the APK grows only by the re-written OBJs.

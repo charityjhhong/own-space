@@ -1,0 +1,18 @@
+{
+  // Own Space design-assistant proxy. The Gemini key is a Worker secret (GEMINI_API_KEY),
+  // set with `npx wrangler secret put GEMINI_API_KEY`; it is never in this file, the repo or the app.
+  "name": "ownspace-assistant",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-05",
+  "vars": {
+    // A fast, stable Flash model (Google AI Studio model list, checked 2026-11-05).
+    "GEMINI_MODEL": "gemini-3.5-flash-lite"
+  },
+  "ratelimits": [
+    // Per device (the app's random install id): 6 requests a minute. These limits are per Cloudflare
+    // location and eventually consistent: a guard against loops and casual abuse, not a spend cap.
+    { "name": "DEVICE_LIMITER", "namespace_id": "1001", "simple": { "limit": 6, "period": 60 } },
+    // Everyone together: a ceiling so a leaked URL cannot run up the bill.
+    { "name": "GLOBAL_LIMITER", "namespace_id": "1002", "simple": { "limit": 60, "period": 60 } }
+  ]
+}

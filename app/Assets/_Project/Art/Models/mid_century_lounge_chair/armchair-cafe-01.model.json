@@ -1,0 +1,26 @@
+{
+ "id": "armchair-cafe-01",
+ "slug": "mid_century_lounge_chair",
+ "tris": 6148,
+ "flat": false,
+ "materials": [
+  {
+   "name": "mid_century_lounge_chair",
+   "normal": "Assets/_Project/Art/Models/mid_century_lounge_chair/mid_century_lounge_chair_mid_century_lounge_chair_n.jpg",
+   "rough": "Assets/_Project/Art/Models/mid_century_lounge_chair/mid_century_lounge_chair_mid_century_lounge_chair_r.jpg",
+   "meanLum": 0.2639,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/mid_century_lounge_chair/mid_century_lounge_chair_mid_century_lounge_chair.jpg",
+   "mean": [
+    0.3291,
+    0.2523,
+    0.1864
+   ]
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c96d83c0d3a5463cb055bf15d182cbb, type: 3}
+  m_Name: MoodPresets
+  m_EditorClassIdentifier: OwnSpace.Content::OwnSpace.Content.MoodPresets
+  _entries:
+  - id: morning
+    name: Morning
+    sunKelvin: 5200
+    sunIntensity: 0.9
+    sunElevationDeg: 25
+    ambientColor: {r: 0.9137255, g: 0.93333334, b: 0.9607843, a: 1}
+    ambientIntensity: 0.9
+    lampKelvin: 3000
+    lampIntensityMultiplier: 0.3
+    windowColor: {r: 1, g: 0.94509804, b: 0.8627451, a: 1}
+    windowIntensity: 0.8
+    passthroughBrightness: 0.05
+    passthroughContrast: 0.05
+    passthroughSaturation: 0.05
+    passthroughTint: {r: 1, g: 0.972549, b: 0.93333334, a: 1}
+    blendSeconds: 2.5
+    needsHeadset: 0
+    notes: Fresh, slightly cool white light. Good for bright, calm study.
+  - id: afternoon
+    name: Afternoon
+    sunKelvin: 6000
+    sunIntensity: 1
+    sunElevationDeg: 55
+    ambientColor: {r: 0.9607843, g: 0.9529412, b: 0.93333334, a: 1}
+    ambientIntensity: 1
+    lampKelvin: 3000
+    lampIntensityMultiplier: 0.2
+    windowColor: {r: 1, g: 0.98039216, b: 0.9411765, a: 1}
+    windowIntensity: 1
+    passthroughBrightness: 0
+    passthroughContrast: 0
+    passthroughSaturation: 0
+    passthroughTint: {r: 1, g: 1, b: 1, a: 1}
+    blendSeconds: 2.5
+    needsHeadset: 0
+    notes: Neutral reference; no passthrough adjustment. Style palettes are tuned
+      to this preset.
+  - id: evening
+    name: Evening
+    sunKelvin: 2800
+    sunIntensity: 0.7
+    sunElevationDeg: 8
+    ambientColor: {r: 0.9098039, g: 0.70980394, b: 0.5411765, a: 1}
+    ambientIntensity: 0.7
+    lampKelvin: 2400
+    lampIntensityMultiplier: 1
+    windowColor: {r: 1, g: 0.62352943, b: 0.33333334, a: 1}
+    windowIntensity: 0.9
+    passthroughBrightness: -0.1
+    passthroughContrast: 0.05
+    passthroughSaturation: 0.05
+    passthroughTint: {r: 1, g: 0.84313726, b: 0.6901961, a: 1}
+    blendSeconds: 2.5
+    needsHeadset: 1
+    notes: 'Warm and low. Tint blue channel is about 31% below white, outside the
+      25% rule: check text readability on a headset.'
+  - id: night
+    name: Night
+    sunKelvin: 8500
+    sunIntensity: 0.15
+    sunElevationDeg: 40
+    ambientColor: {r: 0.22745098, g: 0.2901961, b: 0.41960785, a: 1}
+    ambientIntensity: 0.45
+    lampKelvin: 2200
+    lampIntensityMultiplier: 1.4
+    windowColor: {r: 0.56078434, g: 0.65882355, b: 0.84705883, a: 1}
+    windowIntensity: 0.25
+    passthroughBrightness: -0.3
+    passthroughContrast: 0.1
+    passthroughSaturation: -0.2
+    passthroughTint: {r: 0.7254902, g: 0.79607844, b: 0.9490196, a: 1}
+    blendSeconds: 2.5
+    needsHeadset: 1
+    notes: 'Dark and cool with warm lamps. Tint red channel is about 27% below white
+      and brightness is near the -0.35 floor: check that the room stays safely visible.'

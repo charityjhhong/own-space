@@ -1,0 +1,26 @@
+{
+ "id": "sofa-warm-wood-01",
+ "slug": "sofa_02",
+ "tris": 2728,
+ "flat": false,
+ "materials": [
+  {
+   "name": "sofa_02",
+   "normal": "Assets/_Project/Art/Models/sofa_02/sofa_02_sofa_02_n.jpg",
+   "rough": "Assets/_Project/Art/Models/sofa_02/sofa_02_sofa_02_r.jpg",
+   "meanLum": 0.0504,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/sofa_02/sofa_02_sofa_02.jpg",
+   "mean": [
+    0.0725,
+    0.0464,
+    0.0244
+   ]
+  }
+ ]
+}

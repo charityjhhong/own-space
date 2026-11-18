@@ -1,0 +1,17 @@
+{
+    "name": "OwnSpace.Core.Unity",
+    "rootNamespace": "OwnSpace.Core.Unity",
+    "references": [
+        "OwnSpace.Contracts",
+        "OwnSpace.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

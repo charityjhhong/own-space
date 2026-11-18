@@ -1,0 +1,285 @@
+{
+    "atlas": "Assets/_Project/Art/UI/FurnitureThumbs.png",
+    "cellWidth": 192,
+    "cellHeight": 128,
+    "columns": 10,
+    "width": 1920,
+    "height": 768,
+    "items": [
+        {
+            "id": "armchair-cafe-01",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "armchair-scandi-01",
+            "x": 192,
+            "y": 0
+        },
+        {
+            "id": "armchair-warm-wood-01",
+            "x": 384,
+            "y": 0
+        },
+        {
+            "id": "bed-cafe-01",
+            "x": 576,
+            "y": 0
+        },
+        {
+            "id": "bed-night-city-01",
+            "x": 768,
+            "y": 0
+        },
+        {
+            "id": "bed-scandi-01",
+            "x": 960,
+            "y": 0
+        },
+        {
+            "id": "bed-warm-wood-01",
+            "x": 1152,
+            "y": 0
+        },
+        {
+            "id": "closet-cafe-01",
+            "x": 1344,
+            "y": 0
+        },
+        {
+            "id": "closet-night-city-01",
+            "x": 1536,
+            "y": 0
+        },
+        {
+            "id": "closet-scandi-01",
+            "x": 1728,
+            "y": 0
+        },
+        {
+            "id": "closet-warm-wood-01",
+            "x": 0,
+            "y": 128
+        },
+        {
+            "id": "clutter-basket-scandi-01",
+            "x": 192,
+            "y": 128
+        },
+        {
+            "id": "clutter-basket-warm-wood-01",
+            "x": 384,
+            "y": 128
+        },
+        {
+            "id": "clutter-box-scandi-01",
+            "x": 576,
+            "y": 128
+        },
+        {
+            "id": "clutter-box-warm-wood-01",
+            "x": 768,
+            "y": 128
+        },
+        {
+            "id": "clutter-cushions-scandi-01",
+            "x": 960,
+            "y": 128
+        },
+        {
+            "id": "clutter-floor-cushion-scandi-01",
+            "x": 1152,
+            "y": 128
+        },
+        {
+            "id": "clutter-floor-cushion-warm-wood-01",
+            "x": 1344,
+            "y": 128
+        },
+        {
+            "id": "clutter-plant-scandi-01",
+            "x": 1536,
+            "y": 128
+        },
+        {
+            "id": "clutter-plant-warm-wood-01",
+            "x": 1728,
+            "y": 128
+        },
+        {
+            "id": "clutter-screen-scandi-01",
+            "x": 0,
+            "y": 256
+        },
+        {
+            "id": "clutter-screen-warm-wood-01",
+            "x": 192,
+            "y": 256
+        },
+        {
+            "id": "coffee-table-night-city-01",
+            "x": 384,
+            "y": 256
+        },
+        {
+            "id": "coffee-table-warm-wood-01",
+            "x": 576,
+            "y": 256
+        },
+        {
+            "id": "curtain-night-city-01",
+            "x": 768,
+            "y": 256
+        },
+        {
+            "id": "curtain-scandi-01",
+            "x": 960,
+            "y": 256
+        },
+        {
+            "id": "curtain-warm-wood-01",
+            "x": 1152,
+            "y": 256
+        },
+        {
+            "id": "desk-night-city-01",
+            "x": 1344,
+            "y": 256
+        },
+        {
+            "id": "desk-scandi-01",
+            "x": 1536,
+            "y": 256
+        },
+        {
+            "id": "desk-warm-wood-01",
+            "x": 1728,
+            "y": 256
+        },
+        {
+            "id": "door-trim-night-city-01",
+            "x": 0,
+            "y": 384
+        },
+        {
+            "id": "door-trim-warm-wood-01",
+            "x": 192,
+            "y": 384
+        },
+        {
+            "id": "lamp-night-city-01",
+            "x": 384,
+            "y": 384
+        },
+        {
+            "id": "lamp-scandi-01",
+            "x": 576,
+            "y": 384
+        },
+        {
+            "id": "lamp-warm-wood-01",
+            "x": 768,
+            "y": 384
+        },
+        {
+            "id": "pendant-cafe-01",
+            "x": 960,
+            "y": 384
+        },
+        {
+            "id": "pendant-night-city-01",
+            "x": 1152,
+            "y": 384
+        },
+        {
+            "id": "pendant-warm-wood-01",
+            "x": 1344,
+            "y": 384
+        },
+        {
+            "id": "plant-cafe-01",
+            "x": 1536,
+            "y": 384
+        },
+        {
+            "id": "plant-scandi-01",
+            "x": 1728,
+            "y": 384
+        },
+        {
+            "id": "plant-warm-wood-01",
+            "x": 0,
+            "y": 512
+        },
+        {
+            "id": "rug-cafe-01",
+            "x": 192,
+            "y": 512
+        },
+        {
+            "id": "rug-scandi-01",
+            "x": 384,
+            "y": 512
+        },
+        {
+            "id": "rug-warm-wood-01",
+            "x": 576,
+            "y": 512
+        },
+        {
+            "id": "shelf-cafe-01",
+            "x": 768,
+            "y": 512
+        },
+        {
+            "id": "shelf-night-city-01",
+            "x": 960,
+            "y": 512
+        },
+        {
+            "id": "shelf-scandi-01",
+            "x": 1152,
+            "y": 512
+        },
+        {
+            "id": "shelf-warm-wood-01",
+            "x": 1344,
+            "y": 512
+        },
+        {
+            "id": "sofa-cafe-01",
+            "x": 1536,
+            "y": 512
+        },
+        {
+            "id": "sofa-night-city-01",
+            "x": 1728,
+            "y": 512
+        },
+        {
+            "id": "sofa-scandi-01",
+            "x": 0,
+            "y": 640
+        },
+        {
+            "id": "sofa-warm-wood-01",
+            "x": 192,
+            "y": 640
+        },
+        {
+            "id": "wall-art-scandi-01",
+            "x": 384,
+            "y": 640
+        },
+        {
+            "id": "wall-art-warm-wood-01",
+            "x": 576,
+            "y": 640
+        },
+        {
+            "id": "cover-plain",
+            "x": 768,
+            "y": 640
+        }
+    ]
+}

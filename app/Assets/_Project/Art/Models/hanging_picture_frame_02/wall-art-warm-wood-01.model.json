@@ -1,0 +1,44 @@
+{
+ "id": "wall-art-warm-wood-01",
+ "slug": "hanging_picture_frame_02",
+ "tris": 3676,
+ "flat": false,
+ "materials": [
+  {
+   "name": "hanging_picture_frame_02_artwork",
+   "normal": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02_artwork_n.jpg",
+   "rough": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02_artwork_r.jpg",
+   "meanLum": 0.3995,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02_artwork.jpg",
+   "mean": [
+    0.4347,
+    0.3935,
+    0.3543
+   ]
+  },
+  {
+   "name": "hanging_picture_frame_02",
+   "normal": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02_n.jpg",
+   "rough": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02_r.jpg",
+   "meanLum": 0.4337,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/hanging_picture_frame_02/hanging_picture_frame_02_hanging_picture_frame_02.jpg",
+   "mean": [
+    0.4581,
+    0.4299,
+    0.4002
+   ]
+  }
+ ]
+}

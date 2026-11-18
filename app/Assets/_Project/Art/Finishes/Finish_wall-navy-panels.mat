@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Finish_wall-navy-panels
+  m_Shader: {fileID: 4800000, guid: 0dec53aa166bc4a5ca38f5000d7b581f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _USETEX_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 301df1c9552d64a0ca02aa096c90706d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 63bbbc084c614448fb4e231b7e94f281, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughMap:
+        m_Texture: {fileID: 2800000, guid: 3b8bdfb8d0c3349b397e0b33aee12eb1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Gain: 1.4286
+    - _Line: 0.01
+    - _NormalStrength: 1
+    - _Pattern: 4
+    - _Scale: 0.9
+    - _TexScale: 1.4
+    - _UseTex: 1
+    m_Colors:
+    - _AccentColor: {r: 0.23529412, g: 0.2901961, b: 0.36862746, a: 1}
+    - _BaseColor: {r: 0.12156863, g: 0.16470589, b: 0.23921569, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

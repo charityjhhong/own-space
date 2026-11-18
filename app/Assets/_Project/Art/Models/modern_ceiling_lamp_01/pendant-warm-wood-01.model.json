@@ -1,0 +1,44 @@
+{
+ "id": "pendant-warm-wood-01",
+ "slug": "modern_ceiling_lamp_01",
+ "tris": 2658,
+ "flat": false,
+ "materials": [
+  {
+   "name": "modern_ceiling_lamp_01",
+   "normal": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_lamp_01_n.jpg",
+   "rough": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_lamp_01_r.jpg",
+   "meanLum": 0.5222,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_lamp_01.jpg",
+   "mean": [
+    0.5395,
+    0.5199,
+    0.4936
+   ]
+  },
+  {
+   "name": "modern_ceiling_globe",
+   "normal": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_globe_n.jpg",
+   "rough": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_globe_r.jpg",
+   "meanLum": 0.5222,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/modern_ceiling_lamp_01/modern_ceiling_lamp_01_modern_ceiling_globe.jpg",
+   "mean": [
+    0.5395,
+    0.5199,
+    0.4936
+   ]
+  }
+ ]
+}

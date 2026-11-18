@@ -1,0 +1,36 @@
+{
+    "name": "OwnSpace.MR.Tests",
+    "rootNamespace": "OwnSpace.MR.Tests",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "OwnSpace.Contracts",
+        "OwnSpace.Core",
+        "OwnSpace.Content",
+        "OwnSpace.MR",
+        "OwnSpace.MR.Editor",
+        "meta.xr.mrutilitykit",
+        "OwnSpace.Interaction",
+        "OwnSpace.UI",
+        "Unity.TextMeshPro",
+        "Unity.XR.OpenXR",
+        "Unity.XR.MetaOpenXR",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,38 @@
+{
+ "id": "lamp-scandi-01",
+ "slug": "lampRoundFloor",
+ "tris": 152,
+ "flat": false,
+ "materials": [
+  {
+   "name": "lamp",
+   "color": [
+    1.0,
+    0.9137,
+    0.5882,
+    1.0
+   ],
+   "texture": "",
+   "mean": [
+    1.0,
+    0.9137,
+    0.5882
+   ]
+  },
+  {
+   "name": "metal",
+   "color": [
+    0.7412,
+    0.8235,
+    0.8392,
+    1.0
+   ],
+   "texture": "",
+   "mean": [
+    0.7412,
+    0.8235,
+    0.8392
+   ]
+  }
+ ]
+}

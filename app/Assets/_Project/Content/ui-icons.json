@@ -1,0 +1,87 @@
+{
+ "atlas": "Assets/_Project/Art/UI/UIIcons.png",
+ "width": 512,
+ "height": 256,
+ "cell": 80,
+ "padding": 4,
+ "tint": "white on transparent; tint at runtime",
+ "icons": [
+  {
+   "name": "check",
+   "x": 0,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "chevron-left",
+   "x": 80,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "chevron-right",
+   "x": 160,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "eye",
+   "x": 240,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "info",
+   "x": 320,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "mic",
+   "x": 400,
+   "y": 0,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "minimize",
+   "x": 0,
+   "y": 80,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "redo",
+   "x": 80,
+   "y": 80,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "settings",
+   "x": 160,
+   "y": 80,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "sparkle",
+   "x": 240,
+   "y": 80,
+   "w": 80,
+   "h": 80
+  },
+  {
+   "name": "undo",
+   "x": 320,
+   "y": 80,
+   "w": 80,
+   "h": 80
+  }
+ ]
+}

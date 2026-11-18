@@ -1,0 +1,26 @@
+{
+ "id": "shelf-cafe-01",
+ "slug": "Shelf_01",
+ "tris": 182,
+ "flat": false,
+ "materials": [
+  {
+   "name": "Shelf_01",
+   "normal": "Assets/_Project/Art/Models/Shelf_01/Shelf_01_Shelf_01_n.jpg",
+   "rough": "Assets/_Project/Art/Models/Shelf_01/Shelf_01_Shelf_01_r.jpg",
+   "meanLum": 0.4713,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/Shelf_01/Shelf_01_Shelf_01.jpg",
+   "mean": [
+    0.4775,
+    0.4703,
+    0.4632
+   ]
+  }
+ ]
+}

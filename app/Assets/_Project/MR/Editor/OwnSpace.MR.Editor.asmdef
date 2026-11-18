@@ -1,0 +1,28 @@
+{
+    "name": "OwnSpace.MR.Editor",
+    "rootNamespace": "OwnSpace.MR.Editor",
+    "references": [
+        "OwnSpace.Contracts",
+        "Unity.XR.OpenXR",
+        "Unity.XR.MetaOpenXR",
+        "Unity.XR.OpenXR.Editor",
+        "OwnSpace.MR",
+        "meta.xr.mrutilitykit",
+        "Oculus.VR",
+        "OwnSpace.Interaction",
+        "OwnSpace.UI",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

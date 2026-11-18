@@ -1,0 +1,21 @@
+{
+    "name": "OwnSpace.Diagnostics.Editor",
+    "rootNamespace": "OwnSpace.Diagnostics.Editor",
+    "references": [
+        "OwnSpace.Contracts",
+        "OwnSpace.Core",
+        "OwnSpace.Content",
+        "OwnSpace.Diagnostics"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

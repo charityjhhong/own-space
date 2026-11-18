@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e802e60b045842fa9fdb90ff9659faf, type: 3}
+  m_Name: CatalogPrefabs
+  m_EditorClassIdentifier: OwnSpace.Content::OwnSpace.Content.CatalogPrefabs
+  _entries:
+  - id: desk-warm-wood-01
+    prefab: {fileID: 6373063550134645265, guid: 22caab508949b4adc9b7dd45e051dafb, type: 3}
+  - id: desk-scandi-01
+    prefab: {fileID: 2138627858290360017, guid: 10e5248f33da147bfa952bf83188419f, type: 3}
+  - id: desk-night-city-01
+    prefab: {fileID: 633239502034336996, guid: d58aad098178848899980dfd38982679, type: 3}
+  - id: bed-warm-wood-01
+    prefab: {fileID: 4374316617406171650, guid: eddedff870b1f404fa17b3d167683661, type: 3}
+  - id: bed-scandi-01
+    prefab: {fileID: 6557000883038792315, guid: a4f0abff40adb42b09fb4f01a1cb6877, type: 3}
+  - id: bed-night-city-01
+    prefab: {fileID: 5526646353085774104, guid: 65ec646bbde194e9fa20fd1f24d8fdb5, type: 3}
+  - id: bed-cafe-01
+    prefab: {fileID: 3825327985942643647, guid: 91cb1c5ad7f364a55a542945b1bf8302, type: 3}
+  - id: closet-scandi-01
+    prefab: {fileID: 3332714876674456563, guid: 06ed42c310322436cb7a719a8d400b91, type: 3}
+  - id: closet-night-city-01
+    prefab: {fileID: 6652545978315736056, guid: d48c0ea8e186b43329ebb2f906d6c80f, type: 3}
+  - id: closet-warm-wood-01
+    prefab: {fileID: 8490153805596163496, guid: 03f85e7378b6a434590d29fd016e5985, type: 3}
+  - id: closet-cafe-01
+    prefab: {fileID: 1016061065738947082, guid: 47c39ddf898c44bf7bb058dc95489951, type: 3}
+  - id: sofa-warm-wood-01
+    prefab: {fileID: 2328702471694101621, guid: e1afe2cdc5bea4ac7a29cc2e21d1e9c1, type: 3}
+  - id: sofa-cafe-01
+    prefab: {fileID: 7184007252809598680, guid: d35f38cce0b6b40298773bcbd3174230, type: 3}
+  - id: sofa-scandi-01
+    prefab: {fileID: 5993942688917556656, guid: 9aaed5e712a8e41f59b6b864bc027525, type: 3}
+  - id: sofa-night-city-01
+    prefab: {fileID: 5478242897309153568, guid: 01703dcb177674711a59a48eb7127dfb, type: 3}
+  - id: armchair-warm-wood-01
+    prefab: {fileID: 7552694632730178142, guid: f0040ac82ab454a2b9554d8c373b41ac, type: 3}
+  - id: armchair-cafe-01
+    prefab: {fileID: 2078005104990256026, guid: 1c70b7502138c466b9b1060fadb9e2dd, type: 3}
+  - id: armchair-scandi-01
+    prefab: {fileID: 2298050622454868566, guid: 04d35eb22f6e044abbe4eca9b41b824f, type: 3}
+  - id: coffee-table-warm-wood-01
+    prefab: {fileID: 8403462741379015248, guid: 20ae6fa431b2b43e08e7a83d736e897f, type: 3}
+  - id: coffee-table-night-city-01
+    prefab: {fileID: 6513147810514735533, guid: 809c441a82751410a927aba5d89117f8, type: 3}
+  - id: shelf-warm-wood-01
+    prefab: {fileID: 5619892927116723571, guid: 36db9162290e0456c84c309ff7fc2030, type: 3}
+  - id: shelf-scandi-01
+    prefab: {fileID: 1530802895461629583, guid: b559fb48e146d4832a068483721516ee, type: 3}
+  - id: shelf-cafe-01
+    prefab: {fileID: 7466612952039486250, guid: 7961c6c0a54f04de58f089b5a8f98480, type: 3}
+  - id: shelf-night-city-01
+    prefab: {fileID: 196967031349868561, guid: 31d25d8cd89f040cd8a0d62b841a5e60, type: 3}
+  - id: lamp-warm-wood-01
+    prefab: {fileID: 8911351941724747185, guid: d5b6d8e53d3b6422c808ada762a79363, type: 3}
+  - id: lamp-night-city-01
+    prefab: {fileID: 9134140293407286647, guid: 22ffdc14d25de413a8cd2e3c9d0a2550, type: 3}
+  - id: lamp-scandi-01
+    prefab: {fileID: 2009827229961229114, guid: 78a29e897ca924bef94d59bd34894d4a, type: 3}
+  - id: pendant-warm-wood-01
+    prefab: {fileID: 9013231607297802615, guid: ef35d6637e9874860bed9b296f616d94, type: 3}
+  - id: pendant-cafe-01
+    prefab: {fileID: 6152437011883303956, guid: e13b26e3496dd490eb9eebe44bcba852, type: 3}
+  - id: pendant-night-city-01
+    prefab: {fileID: 2684045235268842156, guid: 3b93fedd6fc714c2a96ba9c42172e74a, type: 3}
+  - id: plant-cafe-01
+    prefab: {fileID: 9080846863131208004, guid: a2bf4863e174946179e71d2ed199263b, type: 3}
+  - id: plant-warm-wood-01
+    prefab: {fileID: 7212230208304326211, guid: 928c9386523cb4d22bf624970c7e12f2, type: 3}
+  - id: plant-scandi-01
+    prefab: {fileID: 3670845931716286000, guid: bac444d524cb64cf9a51427b74fcf1f9, type: 3}
+  - id: rug-scandi-01
+    prefab: {fileID: 8436753271533359112, guid: 786cb9e332a054bd9b28afae4d492096, type: 3}
+  - id: rug-warm-wood-01
+    prefab: {fileID: 7965006052200835479, guid: 72f273445975348d29141812eb98ce95, type: 3}
+  - id: rug-cafe-01
+    prefab: {fileID: 6992950933504852382, guid: e6f757146084e4665943f076b2bc78e5, type: 3}
+  - id: wall-art-warm-wood-01
+    prefab: {fileID: 6993325872076963703, guid: 1f5f7144b09504ac583c81d455119a4b, type: 3}
+  - id: wall-art-scandi-01
+    prefab: {fileID: 8435613916832884091, guid: 8fe13040404b54e1c9a3f12ea6d9877e, type: 3}
+  - id: curtain-warm-wood-01
+    prefab: {fileID: 634584131897879090, guid: c574d4e72a12e4fe98350f293e5f02a4, type: 3}
+  - id: curtain-scandi-01
+    prefab: {fileID: 9090477792864024891, guid: 47def0a71e4a4455ba6ccbad92b444b7, type: 3}
+  - id: curtain-night-city-01
+    prefab: {fileID: 3554472671874176415, guid: d095f2ca5a39042e598c72b212fc8724, type: 3}
+  - id: door-trim-warm-wood-01
+    prefab: {fileID: 1897079478644282530, guid: 8a216e64355a54546a6ddbdbebe9fa63, type: 3}
+  - id: door-trim-night-city-01
+    prefab: {fileID: 6302059477587274442, guid: e9a7f9c39babb4d29af70c271c15fd7c, type: 3}
+  - id: clutter-basket-warm-wood-01
+    prefab: {fileID: 3766296963567837191, guid: 5b172967e321c4cf39b24ab4e263f573, type: 3}
+  - id: clutter-cushions-scandi-01
+    prefab: {fileID: 2703047465656862257, guid: 1ecbcac5c003d4586bb21b1ccff8abfa, type: 3}
+  - id: clutter-box-warm-wood-01
+    prefab: {fileID: 7611539894831107190, guid: afa46b108fae545faa5593b855690b1b, type: 3}
+  - id: clutter-floor-cushion-warm-wood-01
+    prefab: {fileID: 5051853026093703782, guid: 132901cd3a5af4fec901981eb2887c30, type: 3}
+  - id: clutter-plant-warm-wood-01
+    prefab: {fileID: 5903956822247064360, guid: e5a9f5b7acf56414287ce09f7b457dd3, type: 3}
+  - id: clutter-screen-warm-wood-01
+    prefab: {fileID: 3927755345021089537, guid: 53a9f45cb27f547eaa765ad8d16276cb, type: 3}
+  - id: clutter-basket-scandi-01
+    prefab: {fileID: 2920748346776038453, guid: 023cbdef9247e42098be8bfe84dd226e, type: 3}
+  - id: clutter-box-scandi-01
+    prefab: {fileID: 7345167817722923907, guid: 64acc8fdc2ea84d18ac0e9aba96ad491, type: 3}
+  - id: clutter-floor-cushion-scandi-01
+    prefab: {fileID: 2383728970066333729, guid: 819c02c9a5dcf4101abbae01dce9be26, type: 3}
+  - id: clutter-plant-scandi-01
+    prefab: {fileID: 3009701476680485897, guid: 8d4ce93f722524c99976c10a6500f53d, type: 3}
+  - id: clutter-screen-scandi-01
+    prefab: {fileID: 1203623556435943107, guid: 5efe82e60424d4b029290019a73c9a9c, type: 3}

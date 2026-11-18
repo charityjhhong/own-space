@@ -1,0 +1,26 @@
+{
+ "id": "pendant-cafe-01",
+ "slug": "hanging_industrial_lamp",
+ "tris": 8812,
+ "flat": false,
+ "materials": [
+  {
+   "name": "hanging_industrial_lamp",
+   "normal": "Assets/_Project/Art/Models/hanging_industrial_lamp/hanging_industrial_lamp_hanging_industrial_lamp_n.jpg",
+   "rough": "Assets/_Project/Art/Models/hanging_industrial_lamp/hanging_industrial_lamp_hanging_industrial_lamp_r.jpg",
+   "meanLum": 0.3689,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/hanging_industrial_lamp/hanging_industrial_lamp_hanging_industrial_lamp.jpg",
+   "mean": [
+    0.38,
+    0.3701,
+    0.3238
+   ]
+  }
+ ]
+}

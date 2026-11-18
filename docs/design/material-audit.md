@@ -1,0 +1,153 @@
+# Material audit
+
+Written by `Content/Editor/MaterialAudit.cs` (menu `OwnSpace/Content/Audit Materials`, batch `MaterialAudit.RunBatch`). One row per renderer part and material of every catalog prefab. **Maps**: `B` base colour, `N` normal, `R` roughness (the shader has no AO slot, so AO is baked into the base colour or not used). **Size** is the base map in pixels.
+
+Items: 54. Rows: 145: **145 ok, 0 warn or review, 0 fail.**
+
+| Item | Part | Material | Shader | Maps | Size | Verdict |
+| --- | --- | --- | --- | --- | --- | --- |
+| armchair-cafe-01 | Model/default | armchair-cafe-01_mid_century_lounge_chair | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| armchair-scandi-01 | Model/default | armchair-scandi-01_mid_century_lounge_chair | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| armchair-warm-wood-01 | Model/default | armchair-warm-wood-01_mid_century_lounge_chair | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-cafe-01 | Model/carpet | bed-cafe-01_carpet | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-cafe-01 | Model/carpetWhite | bed-cafe-01_carpetWhite | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-cafe-01 | Model/metal | bed-cafe-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-cafe-01 | Model/wood | bed-cafe-01_wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-night-city-01 | Model/carpet | bed-night-city-01_carpet | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-night-city-01 | Model/carpetWhite | bed-night-city-01_carpetWhite | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-night-city-01 | Model/metal | bed-night-city-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-night-city-01 | Model/wood | bed-night-city-01_wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-scandi-01 | Model/carpet | bed-scandi-01_carpet | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-scandi-01 | Model/carpetWhite | bed-scandi-01_carpetWhite | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-scandi-01 | Model/metal | bed-scandi-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-scandi-01 | Model/wood | bed-scandi-01_wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-warm-wood-01 | Model/carpet | bed-warm-wood-01_carpet | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-warm-wood-01 | Model/carpetWhite | bed-warm-wood-01_carpetWhite | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-warm-wood-01 | Model/metal | bed-warm-wood-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| bed-warm-wood-01 | Model/wood | bed-warm-wood-01_wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-cafe-01 | Carcass | Wood_wardrobe_cafe_carcass | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-cafe-01 | Doors | Wood_wardrobe_cafe_door | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-cafe-01 | Handles | Metal_handles_cafe | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-night-city-01 | Carcass | Wood_wardrobe_night-city_carcass | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-night-city-01 | Doors | Wood_wardrobe_night-city_door | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-night-city-01 | Handles | Metal_handles_night-city | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-scandi-01 | Carcass | Wood_wardrobe_scandi_carcass | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-scandi-01 | Doors | Wood_wardrobe_scandi_door | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-scandi-01 | Handles | Metal_handles_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-warm-wood-01 | Carcass | Wood_wardrobe_warm-wood_carcass | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-warm-wood-01 | Doors | Wood_wardrobe_warm-wood_door | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| closet-warm-wood-01 | Handles | Metal_handles_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-basket-scandi-01 | Wall | Wicker_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-basket-scandi-01 | Rim | Wood_basket_rim_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-basket-scandi-01 | Inside | Style_scandi_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| clutter-basket-warm-wood-01 | Wall | Wicker_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-basket-warm-wood-01 | Rim | Wood_basket_rim_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-basket-warm-wood-01 | Inside | Style_warm-wood_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| clutter-box-scandi-01 | Body | Wood_box_scandi_body | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-box-scandi-01 | Lid | Wood_box_scandi_lid | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-box-scandi-01 | Slots | Style_scandi_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| clutter-box-warm-wood-01 | Body | Wood_box_warm-wood_body | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-box-warm-wood-01 | Lid | Wood_box_warm-wood_lid | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-box-warm-wood-01 | Slots | Style_warm-wood_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| clutter-cushions-scandi-01 | Cushion | Linen_cushion_scandi_fabric | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-cushions-scandi-01 | Cushion_1 | Linen_cushion_scandi_accent | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-cushions-scandi-01 | Cushion_2 | Linen_cushion_scandi_soft | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-floor-cushion-scandi-01 | Cushion | Linen_cushion_scandi_floor | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-floor-cushion-warm-wood-01 | Cushion | Linen_cushion_warm-wood_floor | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-plant-scandi-01 | Model/default | clutter-plant-scandi-01_potted_plant_04 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-plant-warm-wood-01 | Model/default | clutter-plant-warm-wood-01_potted_plant_04 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel | Wood_screen_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel_1 | Wicker_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel_2 | Wood_screen_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel_3 | Wicker_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel_4 | Wood_screen_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-scandi-01 | Panel_5 | Wicker_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel | Wood_screen_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel_1 | Wicker_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel_2 | Wood_screen_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel_3 | Wicker_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel_4 | Wood_screen_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| clutter-screen-warm-wood-01 | Panel_5 | Wicker_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| coffee-table-night-city-01 | Model/default | coffee-table-night-city-01_modern_coffee_table_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| coffee-table-warm-wood-01 | Model/default | coffee-table-warm-wood-01_modern_coffee_table_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| curtain-night-city-01 | Left | Fabric_curtain_night-city | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-night-city-01 | Right | Fabric_curtain_night-city | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-night-city-01 | Rod | Metal_rod_night-city | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| curtain-scandi-01 | Left | Fabric_curtain_scandi | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-scandi-01 | Right | Fabric_curtain_scandi | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-scandi-01 | Rod | Metal_rod_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| curtain-warm-wood-01 | Left | Fabric_curtain_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-warm-wood-01 | Right | Fabric_curtain_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| curtain-warm-wood-01 | Rod | Metal_rod_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| desk-night-city-01 | Model/default | desk-night-city-01_small_wooden_table_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| desk-scandi-01 | Model/default | desk-scandi-01_small_wooden_table_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| desk-warm-wood-01 | Model/default | desk-warm-wood-01_small_wooden_table_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| door-trim-night-city-01 | Left | Wood_trim_night-city | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| door-trim-night-city-01 | Right | Wood_trim_night-city | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| door-trim-night-city-01 | Top | Wood_trim_night-city | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| door-trim-warm-wood-01 | Left | Wood_trim_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| door-trim-warm-wood-01 | Right | Wood_trim_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| door-trim-warm-wood-01 | Top | Wood_trim_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| lamp-night-city-01 | Model/lamp | lamp-night-city-01_lamp | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-night-city-01 | Model/metal | lamp-night-city-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-scandi-01 | Model/lamp | lamp-scandi-01_lamp | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-scandi-01 | Model/metal | lamp-scandi-01_metal | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-warm-wood-01 | Base | Metal_lamp_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-warm-wood-01 | Pole | Metal_lamp_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| lamp-warm-wood-01 | Shade | Linen_shade_warm-wood | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| pendant-cafe-01 | Model/default | pendant-cafe-01_hanging_industrial_lamp | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| pendant-night-city-01 | Cord | Metal_cord_night-city | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| pendant-night-city-01 | Shade | Style_night-city_glow | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| pendant-warm-wood-01 | Model/modern_ceiling_globe | pendant-warm-wood-01_modern_ceiling_globe | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| pendant-warm-wood-01 | Model/modern_ceiling_lamp_01 | pendant-warm-wood-01_modern_ceiling_lamp_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Pot | Plaster_pot_cafe | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Soil | Style_cafe_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| plant-cafe-01 | Foliage/Stem | Bark_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-cafe-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Pot | Plaster_pot_scandi | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Soil | Style_scandi_dark | OwnSpace/Furniture | B | 128x128 | OK: plain colour by design (soil, print, glow or dark recess) |
+| plant-scandi-01 | Foliage/Stem | Bark_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-scandi-01 | Foliage/Leaf | Leaf_plant | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| plant-warm-wood-01 | Model/default | plant-warm-wood-01_potted_plant_04 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| rug-cafe-01 | Rug | Fabric_rug_cafe | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| rug-scandi-01 | Rug | Fabric_rug_scandi | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| rug-warm-wood-01 | Rug | Fabric_rug_warm-wood | OwnSpace/Finish | BNR | 1024x1024 | OK |
+| shelf-cafe-01 | Model/default | shelf-cafe-01_Shelf_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-night-city-01 | Frame | Wood_shelf_night-city_frame | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-night-city-01 | Back | Wood_shelf_night-city_back | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-scandi-01 | Frame | Wood_shelf_scandi_frame | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-scandi-01 | Back | Wood_shelf_scandi_back | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-warm-wood-01 | Frame | Wood_shelf_warm-wood_frame | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| shelf-warm-wood-01 | Back | Wood_shelf_warm-wood_back | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| sofa-cafe-01 | Model/default | sofa-cafe-01_sofa_02 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| sofa-night-city-01 | Model/default | sofa-night-city-01_sofa_02 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| sofa-scandi-01 | Model/default | sofa-scandi-01_sofa_02 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| sofa-warm-wood-01 | Model/default | sofa-warm-wood-01_sofa_02 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| wall-art-scandi-01 | Model/hanging_picture_frame_01 | wall-art-scandi-01_hanging_picture_frame_01 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| wall-art-scandi-01 | Model/hanging_picture_frame_01_artwork | wall-art-scandi-01_hanging_picture_frame_01_artwork | OwnSpace/Furniture | B | 1024x1024 | OK: plain colour by design (soil, print, glow or dark recess) |
+| wall-art-warm-wood-01 | Model/hanging_picture_frame_02 | wall-art-warm-wood-01_hanging_picture_frame_02 | OwnSpace/Furniture | BNR | 1024x1024 | OK |
+| wall-art-warm-wood-01 | Model/hanging_picture_frame_02_artwork | wall-art-warm-wood-01_hanging_picture_frame_02_artwork | OwnSpace/Furniture | BNR | 1024x1024 | OK |

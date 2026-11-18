@@ -1,0 +1,53 @@
+# Korean reading copies for the team. Never pushed; deleted before submission.
+/ko/
+
+# Unity generated folders
+/app/[Ll]ibrary/
+/app/[Tt]emp/
+/app/[Oo]bj/
+/app/[Bb]uild/
+/app/[Bb]uilds/
+/app/[Ll]ogs/
+/app/[Uu]ser[Ss]ettings/
+/app/[Mm]emoryCaptures/
+/app/[Rr]ecordings/
+
+# Unity generated files
+/app/*.csproj
+/app/*.sln
+/app/*.slnx
+/app/*.unityproj
+/app/*.pidb
+/app/*.booproj
+/app/*.svd
+/app/*.pdb
+/app/*.mdb
+/app/*.opendb
+/app/*.VC.db
+/app/.vs/
+/app/.vscode/
+/app/.idea/
+/app/.utmp/
+/app/sysinfo.txt
+/app/crashlytics-build.properties
+*.apk
+*.aab
+*.unitypackage
+
+# Builds and keys
+/app/Assets/StreamingAssets/aa/
+*.keystore
+*.jks
+
+# Secrets and machine-local files
+.env
+.env.*
+*.local.json
+proxy/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json

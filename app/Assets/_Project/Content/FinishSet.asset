@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395463b72c21d405c9ffcbcc3d87c1c0, type: 3}
+  m_Name: FinishSet
+  m_EditorClassIdentifier: OwnSpace.Content::OwnSpace.Content.FinishSet
+  _entries:
+  - id: floor-oak-planks
+    name: Oak planks
+    surface: floor
+    styles:
+    - warm-wood
+    moods:
+    - morning
+    - afternoon
+    - evening
+    description: Warm oak floorboards with thin dark seams. Matches most real dorm
+      floors.
+    material: {fileID: 2100000, guid: b4a6f8a69b37e460c927f8564e5d45c1, type: 2}
+  - id: floor-birch-planks
+    name: Birch planks
+    surface: floor
+    styles:
+    - scandi
+    moods:
+    - morning
+    - afternoon
+    description: Pale birch floorboards. Bright and calm.
+    material: {fileID: 2100000, guid: 6d988f5266b8b4143a0eb470c84a8a5f, type: 2}
+  - id: floor-dark-planks
+    name: Dark planks
+    surface: floor
+    styles:
+    - cafe
+    moods:
+    - afternoon
+    - evening
+    - night
+    description: Dark espresso floorboards. Rich and quiet.
+    material: {fileID: 2100000, guid: dd18756f7fc2f4b7b8ce412322d68493, type: 2}
+  - id: floor-concrete-tiles
+    name: Concrete tiles
+    surface: floor
+    styles:
+    - night-city
+    moods:
+    - evening
+    - night
+    description: Gray concrete squares with thin joints. Cool and urban.
+    material: {fileID: 2100000, guid: b272ef637890845919b55558bcc17393, type: 2}
+  - id: wall-cream
+    name: Cream paint
+    surface: wall
+    styles:
+    - warm-wood
+    moods:
+    - morning
+    - afternoon
+    - evening
+    description: Plain warm cream wall. The calmest background for wood furniture.
+    material: {fileID: 2100000, guid: aa38fdf3d211e42f3b4f18851071e25b, type: 2}
+  - id: wall-soft-stripes
+    name: Soft stripes
+    surface: wall
+    styles:
+    - scandi
+    moods:
+    - morning
+    - afternoon
+    description: Off-white wall with faint wide stripes. Light and airy.
+    material: {fileID: 2100000, guid: 02f3a80489c5d46338c2070762b58ae1, type: 2}
+  - id: wall-olive
+    name: Olive paint
+    surface: wall
+    styles:
+    - cafe
+    moods:
+    - afternoon
+    - evening
+    description: Deep olive green wall. Pairs with leather and dark wood.
+    material: {fileID: 2100000, guid: 0fcc9df150eb041469ee06d0d620ae40, type: 2}
+  - id: wall-navy-panels
+    name: Navy panels
+    surface: wall
+    styles:
+    - night-city
+    moods:
+    - evening
+    - night
+    description: Dark navy wall with thin panel lines. Quiet for night.
+    material: {fileID: 2100000, guid: 98675281be6254249be08165d8c7166c, type: 2}

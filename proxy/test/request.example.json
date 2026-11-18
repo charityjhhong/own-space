@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "task": "FillOutside",
+  "intent": "make it a cozy living room",
+  "room": {
+    "floor": [[-1.8, 0], [1.8, 0], [1.8, 5], [-1.8, 5]],
+    "myZone": [[-1.8, 0], [0, 0], [0, 5], [-1.8, 5]],
+    "openings": [{ "kind": "door", "x": 0.9, "z": 0, "w": 0.9, "yaw": 0 }, { "kind": "window", "x": 0.9, "z": 5, "w": 1.2, "yaw": 180 }],
+    "furniture": [{ "id": "a-desk", "role": "Table", "x": -1.5, "z": 2.2, "w": 1.3, "d": 0.6, "yaw": 90, "mine": true }]
+  },
+  "current": { "mood": "", "floor": "", "wall": "", "placed": [] },
+  "catalog": ["sofa-warm-wood-01", "rug-warm-wood-01", "lamp-warm-wood-01"],
+  "finishes": ["floor-oak-planks", "wall-cream"],
+  "moods": ["morning", "afternoon", "evening", "night"]
+}

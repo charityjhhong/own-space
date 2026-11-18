@@ -1,0 +1,22 @@
+{
+ "rug_wool": {
+  "source": {
+   "name": "Carpet 016",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Carpet016",
+   "licence": "CC0-1.0",
+   "size_cm": 170
+  },
+  "gain": 1.4286
+ },
+ "curtain_linen": {
+  "source": {
+   "name": "Fabric 032",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Fabric032",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "gain": 1.4286
+ }
+}

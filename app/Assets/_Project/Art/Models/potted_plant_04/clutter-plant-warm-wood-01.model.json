@@ -1,0 +1,26 @@
+{
+ "id": "clutter-plant-warm-wood-01",
+ "slug": "potted_plant_04",
+ "tris": 8929,
+ "flat": false,
+ "materials": [
+  {
+   "name": "potted_plant_04",
+   "normal": "Assets/_Project/Art/Models/potted_plant_04/potted_plant_04_potted_plant_04_n.jpg",
+   "rough": "Assets/_Project/Art/Models/potted_plant_04/potted_plant_04_potted_plant_04_r.jpg",
+   "meanLum": 0.3788,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/potted_plant_04/potted_plant_04_potted_plant_04.jpg",
+   "mean": [
+    0.3971,
+    0.3803,
+    0.3097
+   ]
+  }
+ ]
+}

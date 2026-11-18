@@ -1,0 +1,26 @@
+{
+ "id": "desk-scandi-01",
+ "slug": "small_wooden_table_01",
+ "tris": 3410,
+ "flat": false,
+ "materials": [
+  {
+   "name": "small_wooden_table_01",
+   "normal": "Assets/_Project/Art/Models/small_wooden_table_01/small_wooden_table_01_small_wooden_table_01_n.jpg",
+   "rough": "Assets/_Project/Art/Models/small_wooden_table_01/small_wooden_table_01_small_wooden_table_01_r.jpg",
+   "meanLum": 0.209,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/small_wooden_table_01/small_wooden_table_01_small_wooden_table_01.jpg",
+   "mean": [
+    0.2675,
+    0.2003,
+    0.1226
+   ]
+  }
+ ]
+}

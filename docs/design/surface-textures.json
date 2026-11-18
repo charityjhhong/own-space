@@ -1,0 +1,52 @@
+{
+ "lamp_metal": {
+  "source": {
+   "name": "Metal 012",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Metal012",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "tinted": true
+ },
+ "plant_leaf": {
+  "source": {
+   "name": "Leaf 001",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Leaf001",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "tinted": false
+ },
+ "plant_bark": {
+  "source": {
+   "name": "Bark 006",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Bark006",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "tinted": true
+ },
+ "plant_pot": {
+  "source": {
+   "name": "Plaster 004",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Plaster004",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "tinted": true
+ },
+ "clutter_wicker": {
+  "source": {
+   "name": "Wicker 001",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Wicker001",
+   "licence": "CC0-1.0",
+   "size_cm": 30
+  },
+  "tinted": true
+ }
+}

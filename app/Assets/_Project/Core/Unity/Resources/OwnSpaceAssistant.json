@@ -1,0 +1,4 @@
+{
+  "_comment": "Design-assistant proxy URL (Cloudflare Worker base URL, https only). No key or secret ever goes here. Empty = offline presets.",
+  "workerUrl": "https://ownspace-assistant.charityjhhong.workers.dev"
+}

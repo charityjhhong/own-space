@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6777685201384627722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4029200251372922844}
+  - component: {fileID: 5237976572166116194}
+  m_Layer: 0
+  m_Name: ToolPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4029200251372922844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777685201384627722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5237976572166116194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777685201384627722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b671bcd21806745fe944f2a18efa0613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OwnSpace.UI::OwnSpace.UI.ToolPanel
+  _dark: {fileID: 0}
+  _pillSize: {x: 0.16, y: 0.036}
+  _title: Own Space
+  _iconsJson: {fileID: 4900000, guid: f8eccee57d9144426b6d48b974e75bc0, type: 3}
+  _hands: {fileID: 0}
+  _material: {fileID: 2100000, guid: d053ac1c904c84aa8954f9725a73016d, type: 2}
+  _style: {fileID: 0}
+  _font: {fileID: 11400000, guid: 879f4ae9112b34887a30ad4c0106235a, type: 2}
+  _fontSemiBold: {fileID: 11400000, guid: d1877f50709a341899518b337c3f02e2, type: 2}
+  _metrics:
+    Size: {x: 0.3, y: 0.46}
+    Padding: 0.016
+    Gap: 0.008
+    StripTop: 0.008
+    StripHeight: 0.028
+    TabTop: 0.04
+    TabHeight: 0.036
+    BodyTop: 0.084
+    CardHeight: 0.036
+    HitPad: 0.004
+    PokeDepth: 0.015
+    TitleHeight: 0.016
+    ToggleHeight: 0.024
+    SwatchHeight: 0.056
+    TileHeight: 0.092
+    TitleGap: 0.006
+    RowGap: 0.012
+    Ahead: 0.65
+    Below: 0.15
+    Tilt: 27
+    MaxYaw: 20
+    MaxPitch: 15
+    MaxDistance: 1
+    LostDistance: 3
+    EaseSeconds: 0.6

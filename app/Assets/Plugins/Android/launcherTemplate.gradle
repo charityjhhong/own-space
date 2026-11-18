@@ -1,0 +1,80 @@
+// Own Space launcher template: Unity 6000.3.20f1 default plus ARM64-only (see AndroidAbiSetup).
+apply plugin: 'com.android.application'
+apply from: 'setupSymbols.gradle'
+apply from: '../shared/keepUnitySymbols.gradle'
+apply from: '../shared/common.gradle'
+
+dependencies {
+    implementation project(':unityLibrary')
+}
+
+android {
+    namespace "**NAMESPACE**"
+    ndkPath "**NDKPATH**"
+    ndkVersion "**NDKVERSION**"
+    compileSdk **APIVERSION**
+    buildToolsVersion "**BUILDTOOLS**"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdk **MINSDK**
+        targetSdk **TARGETSDK**
+        applicationId '**APPLICATIONID**'
+        ndk {
+            // Own Space: Quest is ARM64 only. Pinned instead of the generated filter, so no 32-bit lib ships.
+            abiFilters 'arm64-v8a'
+            debugSymbolLevel **DEBUGSYMBOLLEVEL**
+        }
+        versionCode **VERSIONCODE**
+        versionName '**VERSIONNAME**'
+    }
+
+    androidResources {
+        noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }**SIGN**
+
+    lint {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled **MINIFY_DEBUG**
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')**SIGNCONFIG**
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled **MINIFY_RELEASE**
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')**SIGNCONFIG**
+        }
+    }**PACKAGING****PLAY_ASSET_PACKS****SPLITS**
+
+    // Own Space: drop other-ABI native libs that AARs carry, whatever their packaging.
+    packaging {
+        jniLibs {
+            excludes += ['lib/armeabi-v7a/**', 'lib/armeabi/**', 'lib/x86/**', 'lib/x86_64/**']
+        }
+    }
+**BUILT_APK_LOCATION**
+    bundle {
+        language {
+            enableSplit false
+        }
+        density {
+            enableSplit false
+        }
+        abi {
+            enableSplit true
+        }
+        texture {
+            enableSplit true
+        }
+    }
+
+	**GOOGLE_PLAY_DEPENDENCIES**
+}**SPLITS_VERSION_CODE****LAUNCHER_SOURCE_BUILD_SETUP**

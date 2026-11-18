@@ -1,0 +1,19 @@
+{
+    "name": "OwnSpace.Content.Editor",
+    "rootNamespace": "OwnSpace.Content.Editor",
+    "references": [
+        "OwnSpace.Content",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

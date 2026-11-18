@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  repo-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Every Unity asset has its .meta
+        run: python3 .github/scripts/check_meta.py
+
+      - name: Branch stays inside its agent's paths
+        if: github.event_name == 'pull_request'
+        env:
+          BRANCH: ${{ github.head_ref }}
+          BASE: ${{ github.base_ref }}
+          CROSS: ${{ contains(github.event.pull_request.labels.*.name, 'cross-boundary') }}
+        run: |
+          git diff --name-only "origin/$BASE...HEAD" > changed.txt
+          if [ "$CROSS" = "true" ]; then FLAG=--allow-cross-boundary; else FLAG=; fi
+          python3 .github/scripts/check_boundaries.py "$BRANCH" changed.txt $FLAG
+
+      - name: No Korean in tracked files (ko/ copies stay local)
+        run: python3 .github/scripts/check_english.py
+
+  # Unity compile and tests run locally in batch mode (.github/scripts/unity-check.sh)
+  # until a Unity license secret is added for CI.

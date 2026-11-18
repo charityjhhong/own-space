@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 0,
+  "presets": [
+    {
+      "id": "cozy-living-room",
+      "name": "Cozy living room",
+      "outsideFloorFinishId": "floor-oak-planks",
+      "outsideWallFinishId": "wall-cream",
+      "moodPresetId": "evening",
+      "pieceIds": [
+        "rug-warm-wood-01",
+        "sofa-warm-wood-01",
+        "coffee-table-warm-wood-01",
+        "lamp-warm-wood-01",
+        "plant-warm-wood-01",
+        "shelf-warm-wood-01",
+        "wall-art-warm-wood-01"
+      ],
+      "tag": "set:cozy-living-room"
+    },
+    {
+      "id": "study-library",
+      "name": "Study library",
+      "outsideFloorFinishId": "floor-birch-planks",
+      "outsideWallFinishId": "wall-soft-stripes",
+      "moodPresetId": "morning",
+      "pieceIds": [
+        "rug-scandi-01",
+        "armchair-scandi-01",
+        "shelf-scandi-01",
+        "lamp-scandi-01",
+        "plant-scandi-01"
+      ],
+      "tag": "set:study-library"
+    },
+    {
+      "id": "cafe",
+      "name": "Café",
+      "outsideFloorFinishId": "floor-dark-planks",
+      "outsideWallFinishId": "wall-olive",
+      "moodPresetId": "afternoon",
+      "pieceIds": [
+        "rug-cafe-01",
+        "sofa-cafe-01",
+        "armchair-cafe-01",
+        "shelf-cafe-01",
+        "plant-cafe-01"
+      ],
+      "tag": "set:cafe"
+    },
+    {
+      "id": "night-lounge",
+      "name": "Night lounge",
+      "outsideFloorFinishId": "floor-concrete-tiles",
+      "outsideWallFinishId": "wall-navy-panels",
+      "moodPresetId": "night",
+      "pieceIds": [
+        "sofa-night-city-01",
+        "coffee-table-night-city-01",
+        "lamp-night-city-01",
+        "shelf-night-city-01"
+      ],
+      "tag": "set:night-lounge"
+    },
+    {
+      "id": "study-cafe",
+      "name": "Study café",
+      "outsideFloorFinishId": "floor-dark-planks",
+      "outsideWallFinishId": "wall-cream",
+      "moodPresetId": "afternoon",
+      "pieceIds": [
+        "rug-cafe-01",
+        "sofa-cafe-01",
+        "armchair-cafe-01",
+        "shelf-cafe-01",
+        "pendant-cafe-01",
+        "plant-cafe-01",
+        "wall-art-warm-wood-01"
+      ],
+      "tag": "set:study-cafe"
+    },
+    {
+      "id": "calm-bedroom",
+      "name": "Calm bedroom",
+      "outsideFloorFinishId": "floor-birch-planks",
+      "outsideWallFinishId": "wall-cream",
+      "moodPresetId": "evening",
+      "pieceIds": [
+        "rug-scandi-01",
+        "armchair-scandi-01",
+        "lamp-scandi-01",
+        "shelf-scandi-01",
+        "plant-scandi-01",
+        "wall-art-scandi-01"
+      ],
+      "tag": "set:calm-bedroom"
+    },
+    {
+      "id": "bright-studio",
+      "name": "Bright studio",
+      "outsideFloorFinishId": "floor-birch-planks",
+      "outsideWallFinishId": "wall-cream",
+      "moodPresetId": "morning",
+      "pieceIds": [
+        "rug-scandi-01",
+        "sofa-scandi-01",
+        "armchair-scandi-01",
+        "lamp-scandi-01",
+        "plant-scandi-01",
+        "shelf-scandi-01",
+        "wall-art-scandi-01"
+      ],
+      "tag": "set:bright-studio"
+    },
+    {
+      "id": "reading-nook",
+      "name": "Reading nook",
+      "outsideFloorFinishId": "floor-oak-planks",
+      "outsideWallFinishId": "wall-olive",
+      "moodPresetId": "evening",
+      "pieceIds": [
+        "rug-warm-wood-01",
+        "armchair-warm-wood-01",
+        "lamp-warm-wood-01",
+        "shelf-warm-wood-01",
+        "plant-warm-wood-01"
+      ],
+      "tag": "set:reading-nook"
+    }
+  ]
+}

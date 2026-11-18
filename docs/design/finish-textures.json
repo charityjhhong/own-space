@@ -1,0 +1,192 @@
+{
+ "floor-oak-planks": {
+  "source": {
+   "name": "Wood Floor 051",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=WoodFloor051",
+   "licence": "CC0-1.0",
+   "size_cm": 180
+  },
+  "albedo_mean_rgb": [
+   155,
+   123,
+   93
+  ],
+  "tinted": false,
+  "gain": 1.0,
+  "scale_m": 1.8,
+  "files": [
+   "floor-oak-planks_albedo.jpg",
+   "floor-oak-planks_normal.jpg",
+   "floor-oak-planks_rough.jpg",
+   "floor-oak-planks_thumb.png"
+  ]
+ },
+ "floor-birch-planks": {
+  "source": {
+   "name": "Wood Floor 062",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=WoodFloor062",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "albedo_mean_rgb": [
+   179,
+   179,
+   179
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.8,
+  "files": [
+   "floor-birch-planks_albedo.jpg",
+   "floor-birch-planks_normal.jpg",
+   "floor-birch-planks_rough.jpg",
+   "floor-birch-planks_thumb.png"
+  ]
+ },
+ "floor-dark-planks": {
+  "source": {
+   "name": "Wood Floor 064",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=WoodFloor064",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "albedo_mean_rgb": [
+   178,
+   178,
+   178
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.8,
+  "files": [
+   "floor-dark-planks_albedo.jpg",
+   "floor-dark-planks_normal.jpg",
+   "floor-dark-planks_rough.jpg",
+   "floor-dark-planks_thumb.png"
+  ]
+ },
+ "floor-concrete-tiles": {
+  "source": {
+   "name": "Concrete 010",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Concrete010",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "albedo_mean_rgb": [
+   179,
+   179,
+   179
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.2,
+  "files": [
+   "floor-concrete-tiles_albedo.jpg",
+   "floor-concrete-tiles_normal.jpg",
+   "floor-concrete-tiles_rough.jpg",
+   "floor-concrete-tiles_thumb.png"
+  ]
+ },
+ "wall-cream": {
+  "source": {
+   "name": "Painted Plaster 017",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=PaintedPlaster017",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "albedo_mean_rgb": [
+   178,
+   178,
+   178
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.2,
+  "files": [
+   "wall-cream_albedo.jpg",
+   "wall-cream_normal.jpg",
+   "wall-cream_rough.jpg",
+   "wall-cream_thumb.png"
+  ]
+ },
+ "wall-soft-stripes": {
+  "source": {
+   "name": "White Planks Clean",
+   "author": "Rob Tuytel",
+   "url": "https://polyhaven.com/a/white_planks_clean",
+   "licence": "CC0-1.0",
+   "size_mm": [
+    1800.0000715255737,
+    1800.0000715255737
+   ]
+  },
+  "albedo_mean_rgb": [
+   178,
+   178,
+   178
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 0.9,
+  "files": [
+   "wall-soft-stripes_albedo.jpg",
+   "wall-soft-stripes_normal.jpg",
+   "wall-soft-stripes_rough.jpg",
+   "wall-soft-stripes_thumb.png"
+  ]
+ },
+ "wall-olive": {
+  "source": {
+   "name": "Plaster 001",
+   "author": "ambientCG",
+   "url": "https://ambientcg.com/view?id=Plaster001",
+   "licence": "CC0-1.0",
+   "size_cm": 0
+  },
+  "albedo_mean_rgb": [
+   179,
+   179,
+   179
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.2,
+  "files": [
+   "wall-olive_albedo.jpg",
+   "wall-olive_normal.jpg",
+   "wall-olive_rough.jpg",
+   "wall-olive_thumb.png"
+  ]
+ },
+ "wall-navy-panels": {
+  "source": {
+   "name": "Dark Paneled Wood",
+   "author": "Dimitrios Savva",
+   "url": "https://polyhaven.com/a/dark_paneled_wood",
+   "licence": "CC0-1.0",
+   "size_mm": [
+    1400.0000953674316,
+    1400.0000953674316
+   ]
+  },
+  "albedo_mean_rgb": [
+   177,
+   177,
+   177
+  ],
+  "tinted": true,
+  "gain": 1.4286,
+  "scale_m": 1.4,
+  "files": [
+   "wall-navy-panels_albedo.jpg",
+   "wall-navy-panels_normal.jpg",
+   "wall-navy-panels_rough.jpg",
+   "wall-navy-panels_thumb.png"
+  ]
+ }
+}

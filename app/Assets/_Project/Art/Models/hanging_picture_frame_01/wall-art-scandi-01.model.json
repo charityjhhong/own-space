@@ -1,0 +1,44 @@
+{
+ "id": "wall-art-scandi-01",
+ "slug": "hanging_picture_frame_01",
+ "tris": 2584,
+ "flat": false,
+ "materials": [
+  {
+   "name": "hanging_picture_frame_01_artwork",
+   "normal": "",
+   "rough": "Assets/_Project/Art/Models/hanging_picture_frame_01/hanging_picture_frame_01_hanging_picture_frame_01_artwork_r.jpg",
+   "meanLum": 0.4276,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/hanging_picture_frame_01/hanging_picture_frame_01_hanging_picture_frame_01_artwork.jpg",
+   "mean": [
+    0.4276,
+    0.4276,
+    0.4276
+   ]
+  },
+  {
+   "name": "hanging_picture_frame_01",
+   "normal": "Assets/_Project/Art/Models/hanging_picture_frame_01/hanging_picture_frame_01_hanging_picture_frame_01_n.jpg",
+   "rough": "Assets/_Project/Art/Models/hanging_picture_frame_01/hanging_picture_frame_01_hanging_picture_frame_01_r.jpg",
+   "meanLum": 0.2042,
+   "color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "texture": "Assets/_Project/Art/Models/hanging_picture_frame_01/hanging_picture_frame_01_hanging_picture_frame_01.jpg",
+   "mean": [
+    0.2227,
+    0.2015,
+    0.176
+   ]
+  }
+ ]
+}
