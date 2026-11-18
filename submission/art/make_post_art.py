@@ -86,7 +86,7 @@ def text_block(im, x, y, title_px, head_px, sub_px, align="l", subs=True):
     yy += head_px * 0.35
     for line in ((SUB, SUB2) if subs else ()): put(line, fs, yy, (225, 230, 240)); yy += sub_px * 1.4
 
-def landscape(w, h, split_at=0.27):
+def landscape(w, h, split_at=0.5):
     """Before and after, side by side: the bare room on the left (only the real desk), the same room redesigned on
     the right. The split sits past the desk so the redesigned side shows the whole set."""
     split = round(w * split_at); im = split_room(w, h, split); shade_top(im, 0.6)
@@ -100,7 +100,7 @@ def landscape(w, h, split_at=0.27):
 
 def square(s):
     """The app thumbnail: before and after split (the bare room left, past the desk), the name large in the centre."""
-    split = round(s * 0.24); im = split_room(s, s, split)
+    split = round(s * 0.5); im = split_room(s, s, split)
     band = Image.new("L", (s, s), 0); bd = ImageDraw.Draw(band)
     for y in range(s):
         t = abs(y - s * 0.5) / (s * 0.5); bd.line([(0, y), (s, y)], fill=round(175 * max(0.0, 1 - t * 1.5) ** 1.3))

@@ -1,8 +1,10 @@
-"""Renders the Own Space post art backdrops in Blender (Cycles): one room, twice.
-  before: the room as it is: bare grey walls, concrete floor, cool dim light, only the real desk and laptop.
-  after:  the same room redesigned: oak floor, cream walls, the app's own CC0 furniture (Poly Haven), warm light.
-The real desk is identical in both: it stays real.
-Run (about 2 to 4 minutes on Apple silicon):
+"""Renders the Own Space post art backdrops in Blender (Cycles): one room, twice, from the same camera.
+  before: the room as it is: bare grey walls and floor, flat cool light, only the real desk.
+  after:  the same room made your own: oak floor, warm walls, curtains, a sofa under framed art, plants, a floor lamp,
+          a rug and a coffee table, in warm evening light. All furniture is the app's own CC0 set (Poly Haven).
+The real desk is identical in both. The camera puts the desk and window in the left half and the sofa corner in the
+right half, so a 50/50 split reads as before | after.
+Run (about 3 to 6 minutes on Apple silicon):
   /Applications/Blender.app/Contents/MacOS/Blender -b -P submission/art/render_room.py -- <out-dir> [samples]
 Writes <out-dir>/room-before.png and room-after.png (1600 x 1200). make_post_art.py builds the thumbnails from them."""
 import bpy, math, os, sys
@@ -16,8 +18,9 @@ OUT = argv[0] if argv else os.path.join(ROOT, "submission", "art", "post", "rend
 SAMPLES = int(argv[1]) if len(argv) > 1 else 160
 os.makedirs(OUT, exist_ok=True)
 
-W, D, H = 4.6, 4.4, 2.6          # room width (x), depth (y), height (z); back wall at y = D
-WIN = (0.5, 2.0, 0.85, 2.25)      # window on the back wall: x0, x1, z0, z1
+W, D, H = 4.8, 4.4, 2.6           # room width (x), depth (y), height (z); back wall at y = D
+WIN = (-1.75, -0.45, 0.85, 2.25)   # window on the back wall, left half: x0, x1, z0, z1
+SOFA_X = 0.95                      # the sofa corner, right half
 
 def reset():
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -33,7 +36,6 @@ def reset():
     s.cycles.samples = SAMPLES; s.cycles.use_denoising = True
     s.render.resolution_x, s.render.resolution_y = 1600, 1200
     s.view_settings.view_transform = "AgX"; s.view_settings.look = "AgX - Base Contrast"
-    s.render.film_transparent = False
     return s
 
 def img(path, color=True):
@@ -41,10 +43,13 @@ def img(path, color=True):
     if not color: im.colorspace_settings.name = "Non-Color"
     return im
 
-def pbr(name, albedo=None, normal=None, rough=None, color=(0.8, 0.8, 0.8), roughness=0.6, scale=None, emission=None, strength=0.0):
+def pbr(name, albedo=None, normal=None, rough=None, color=(0.8, 0.8, 0.8), roughness=0.6, scale=None,
+        emission=None, strength=0.0, metallic=0.0, transmission=0.0):
     m = bpy.data.materials.new(name); m.use_nodes = True
-    nt = m.node_tree; b = nt.nodes["Principled BSDF"]; b.inputs["Roughness"].default_value = roughness
+    nt = m.node_tree; b = nt.nodes["Principled BSDF"]
+    b.inputs["Roughness"].default_value = roughness; b.inputs["Metallic"].default_value = metallic
     b.inputs["Base Color"].default_value = (*color, 1)
+    if transmission: b.inputs["Transmission Weight"].default_value = transmission
     uv = None
     if scale:
         tc = nt.nodes.new("ShaderNodeTexCoord"); mp = nt.nodes.new("ShaderNodeMapping")
@@ -68,21 +73,29 @@ def box(name, x0, x1, y0, y1, z0, z1, mat):
     bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.uv.cube_project(cube_size=1.0); bpy.ops.object.mode_set(mode="OBJECT")
     o.data.materials.append(mat); return o
 
-def model(folder, obj, tex, at, yaw=0.0, height=None):
-    """Imports an app model, puts its feet on the floor at `at` (x, y, z), turned `yaw` degrees."""
+def slot_material(folder, name, glow):
+    """The app's textures for one OBJ material: <folder>_<material>.jpg, _n, _r; glass and plain lamp shades by name."""
+    base = os.path.join(M, folder, folder + "_" + name)
+    if name.endswith("glass"): return pbr(name, color=(0.95, 0.95, 0.95), roughness=0.05, transmission=1.0)
+    if os.path.exists(base + ".jpg"): return pbr(name, base + ".jpg", base + "_n.jpg", base + "_r.jpg", roughness=0.7)
+    if name == "lamp": return pbr(name, color=(1.0, 0.9, 0.72), roughness=0.8, emission=(1.0, 0.78, 0.5), strength=glow)
+    return pbr(name, color=(0.12, 0.12, 0.12), roughness=0.35, metallic=0.8)
+
+def model(folder, obj, at, yaw=0.0, height=None, glow=0.0, on_wall=False):
+    """Imports an app model and puts it at `at` (x, y, z): feet on z, or its centre at `at` when on_wall."""
     before = set(bpy.data.objects)
     bpy.ops.wm.obj_import(filepath=os.path.join(M, folder, obj))
     objs = [o for o in bpy.data.objects if o not in before]
-    base = os.path.join(M, folder, tex)
-    mat = pbr(obj, base + ".jpg", base + "_n.jpg", base + "_r.jpg", roughness=0.7)
     for o in objs:
-        o.data.materials.clear(); o.data.materials.append(mat)
+        for slot in o.material_slots:
+            name = (slot.material.name if slot.material else "default").split(".")[0]
+            slot.material = slot_material(folder, name, glow)
         for p in o.data.polygons: p.use_smooth = True
     bpy.context.view_layer.update()
     pts = [o.matrix_world @ Vector(c) for o in objs for c in o.bound_box]
     lo = Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts)))
     hi = Vector((max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts)))
-    centre = Vector(((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, lo.z))
+    centre = Vector(((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, (lo.z + hi.z) / 2 if on_wall else lo.z))
     s = height / (hi.z - lo.z) if height else 1.0
     piv = bpy.data.objects.new(obj + "_pivot", None); bpy.context.collection.objects.link(piv)
     for o in objs:
@@ -91,16 +104,14 @@ def model(folder, obj, tex, at, yaw=0.0, height=None):
     return piv
 
 def room(after):
+    F = os.path.join(ART, "Finishes", "Tex")
     if after:
-        F = os.path.join(ART, "Finishes", "Tex")
         floor = pbr("floor", F + "/floor-oak-planks_albedo.jpg", F + "/floor-oak-planks_normal.jpg", F + "/floor-oak-planks_rough.jpg", scale=0.6)
-        wall = pbr("wall", None, F + "/wall-cream_normal.jpg", F + "/wall-cream_rough.jpg", color=(0.86, 0.79, 0.68), scale=0.5)
-        trim = pbr("trim", color=(0.92, 0.9, 0.86), roughness=0.4)
+        wall = pbr("wall", None, F + "/wall-cream_normal.jpg", F + "/wall-cream_rough.jpg", color=(0.80, 0.70, 0.58), scale=0.5)
     else:
-        floor = pbr("floor", color=(0.42, 0.42, 0.41), roughness=0.85)
-        wall = pbr("wall", color=(0.62, 0.62, 0.61), roughness=0.9)
-        trim = wall
-    ceil = pbr("ceiling", color=(0.85, 0.85, 0.84), roughness=0.9)
+        floor = pbr("floor", color=(0.40, 0.40, 0.39), roughness=0.85)
+        wall = pbr("wall", color=(0.60, 0.60, 0.59), roughness=0.9)
+    ceil = pbr("ceiling", color=(0.85, 0.84, 0.82), roughness=0.9)
     t = 0.1
     box("floor", -W / 2 - t, W / 2 + t, -1.5, D + t, -t, 0, floor)
     box("ceiling", -W / 2 - t, W / 2 + t, -1.5, D + t, H, H + t, ceil)
@@ -112,66 +123,85 @@ def room(after):
     frame = pbr("frame", color=(0.95, 0.95, 0.94), roughness=0.35)
     box("sill", x0 - 0.05, x1 + 0.05, D - 0.06, D, z0 - 0.03, z0, frame)
     box("mullion", (x0 + x1) / 2 - 0.02, (x0 + x1) / 2 + 0.02, D, D + 0.04, z0, z1, frame)
-    # daylight beyond the window: a bright sky card, and the sun through it
-    sky = pbr("sky", color=(0, 0, 0), emission=(0.75, 0.86, 1.0) if after else (0.7, 0.75, 0.8), strength=6.0 if after else 2.5)
-    box("sky", x0 - 1, x1 + 1, D + 1.5, D + 1.6, z0 - 1, z1 + 1, sky)
+    sky = pbr("sky", color=(0, 0, 0), emission=(1.0, 0.72, 0.48) if after else (0.7, 0.74, 0.8), strength=3.5 if after else 2.0)
+    box("sky", x0 - 1.5, x1 + 1.5, D + 1.5, D + 1.6, z0 - 1, z1 + 1.5, sky)
     if after:
-        base = pbr("baseboard", color=(0.93, 0.92, 0.89), roughness=0.4)
-        box("base_l", -W / 2, -W / 2 + 0.015, 0, D, 0, 0.1, base); box("base_r", W / 2 - 0.015, W / 2, 0, D, 0, 0.1, base)
-        box("base_b", -W / 2, W / 2, D - 0.015, D, 0, 0.1, base)
-        box("crown_l", -W / 2, -W / 2 + 0.03, 0, D, H - 0.07, H, base); box("crown_r", W / 2 - 0.03, W / 2, 0, D, H - 0.07, H, base)
-        box("crown_b", -W / 2, W / 2, D - 0.03, D, H - 0.07, H, base)
+        trim = pbr("trim", color=(0.93, 0.91, 0.87), roughness=0.4)
+        box("base_l", -W / 2, -W / 2 + 0.015, 0, D, 0, 0.1, trim); box("base_r", W / 2 - 0.015, W / 2, 0, D, 0, 0.1, trim)
+        box("base_b", -W / 2, W / 2, D - 0.015, D, 0, 0.1, trim)
+        box("crown_l", -W / 2, -W / 2 + 0.03, 0, D, H - 0.07, H, trim); box("crown_r", W / 2 - 0.03, W / 2, 0, D, H - 0.07, H, trim)
+        box("crown_b", -W / 2, W / 2, D - 0.03, D, H - 0.07, H, trim)
+        lin = os.path.join(ART, "Fabrics", "Tex", "curtain_linen")
+        curtain = pbr("curtain", lin + "_albedo.jpg", lin + "_normal.jpg", lin + "_rough.jpg", scale=2.0, roughness=0.9)
+        box("curtain_l", x0 - 0.45, x0 + 0.05, D - 0.14, D - 0.1, 0.05, H - 0.1, curtain)
+        box("curtain_r", x1 - 0.05, x1 + 0.45, D - 0.14, D - 0.1, 0.05, H - 0.1, curtain)
+        rail = pbr("rail", color=(0.15, 0.13, 0.12), roughness=0.4, metallic=0.7)
+        box("rail", x0 - 0.55, x1 + 0.55, D - 0.14, D - 0.1, H - 0.12, H - 0.1, rail)
 
 def desk():
-    """The real desk, front left against the wall: identical before and after."""
-    model("small_wooden_table_01", "desk-cafe-01.obj", "small_wooden_table_01_small_wooden_table_01", (-1.75, 1.55, 0), yaw=90, height=0.74)
+    """The real desk, front left against the left wall: identical before and after."""
+    model("small_wooden_table_01", "desk-cafe-01.obj", (-1.85, 1.45, 0), yaw=90, height=0.74)
     mug = pbr("mug", color=(0.9, 0.9, 0.88), roughness=0.25)
-    bpy.ops.mesh.primitive_cylinder_add(radius=0.04, depth=0.1, location=(-1.6, 1.35, 0.79)); bpy.context.object.data.materials.append(mug)
+    bpy.ops.mesh.primitive_cylinder_add(radius=0.04, depth=0.1, location=(-1.7, 1.25, 0.79)); bpy.context.object.data.materials.append(mug)
     book = pbr("book", color=(0.25, 0.32, 0.45), roughness=0.6)
-    box("book", -1.95, -1.70, 1.6, 1.78, 0.74, 0.77, book)
+    box("book", -2.05, -1.80, 1.5, 1.68, 0.74, 0.77, book)
 
 def furniture():
-    model("sofa_02", "sofa-cafe-01.obj", "sofa_02_sofa_02", (-0.6, D - 0.55, 0), yaw=180)
-    model("modern_coffee_table_01", "coffee-table-warm-wood-01.obj", "modern_coffee_table_01_modern_coffee_table_01", (-0.55, D - 1.65, 0), yaw=0)
-    model("mid_century_lounge_chair", "armchair-cafe-01.obj", "mid_century_lounge_chair_mid_century_lounge_chair", (0.95, D - 1.7, 0), yaw=-125)
-    model("potted_plant_04", "clutter-plant-cafe-01.obj", "potted_plant_04_potted_plant_04", (-W / 2 + 0.35, D - 0.35, 0), height=1.25)
-    model("Shelf_01", "shelf-cafe-01.obj", "Shelf_01_Shelf_01", (W / 2 - 0.2, D - 1.9, 0), yaw=-90)
-    model("hanging_industrial_lamp", "pendant-cafe-01.obj", "hanging_industrial_lamp_hanging_industrial_lamp", (-0.55, D - 1.65, H - 0.75))
+    y = D - 0.5
+    model("sofa_02", "sofa-cafe-01.obj", (SOFA_X, y, 0), yaw=180)
+    model("hanging_picture_frame_02", "wall-art-warm-wood-01.obj", (SOFA_X - 0.45, D - 0.03, 1.6), on_wall=True)
+    model("hanging_picture_frame_01", "wall-art-scandi-01.obj", (SOFA_X + 0.45, D - 0.03, 1.65), on_wall=True)
+    model("modern_coffee_table_01", "coffee-table-warm-wood-01.obj", (SOFA_X, D - 1.55, 0))
+    model("potted_plant_04", "clutter-plant-cafe-01.obj", (SOFA_X + 0.05, D - 1.55, 0.42), height=0.35)
+    model("potted_plant_04", "clutter-plant-cafe-01.obj", (W / 2 - 0.4, D - 0.4, 0), height=1.4)
+    model("potted_plant_04", "clutter-plant-cafe-01.obj", (-0.15, D - 0.35, 0), height=0.9)
+    model("lampRoundFloor", "lamp-scandi-01.obj", (SOFA_X - 1.0, D - 0.45, 0), height=1.5, glow=6.0)
+    model("mid_century_lounge_chair", "armchair-cafe-01.obj", (W / 2 - 0.65, D - 2.15, 0), yaw=-125)
+    model("modern_ceiling_lamp_01", "pendant-warm-wood-01.obj", (SOFA_X, D - 1.55, H - 0.6))
     rugf = os.path.join(ART, "Fabrics", "Tex", "rug_wool")
     rug = pbr("rug", rugf + "_albedo.jpg", rugf + "_normal.jpg", rugf + "_rough.jpg", scale=1.5, roughness=0.95)
-    box("rug", -1.85, 0.75, D - 2.55, D - 0.75, 0, 0.012, rug)
+    box("rug", SOFA_X - 1.15, SOFA_X + 1.15, D - 2.45, D - 0.85, 0, 0.012, rug)
+
+def light(name, kind, energy, color, loc, rot=(0, 0, 0), size=None):
+    l = bpy.data.lights.new(name, kind); l.energy = energy; l.color = color
+    if size is not None:
+        if kind == "AREA": l.size = size
+        else: l.shadow_soft_size = size
+    o = bpy.data.objects.new(name, l); bpy.context.collection.objects.link(o); o.location = loc; o.rotation_euler = rot
+    o.visible_camera = False
+    return l
 
 def lights(after):
     s = bpy.context.scene; w = bpy.data.worlds.new("w"); s.world = w; w.use_nodes = True
-    w.node_tree.nodes["Background"].inputs["Color"].default_value = (0.6, 0.7, 0.85, 1) if after else (0.5, 0.52, 0.55, 1)
-    w.node_tree.nodes["Background"].inputs["Strength"].default_value = 0.4 if after else 0.25
+    w.node_tree.nodes["Background"].inputs["Color"].default_value = (0.9, 0.7, 0.55, 1) if after else (0.5, 0.52, 0.55, 1)
+    w.node_tree.nodes["Background"].inputs["Strength"].default_value = 0.25
     x0, x1, z0, z1 = WIN
-    a = bpy.data.lights.new("window", "AREA"); a.shape = "RECTANGLE"; a.size, a.size_y = x1 - x0, z1 - z0
-    a.energy = 900 if after else 260; a.color = (1.0, 0.96, 0.9) if after else (0.85, 0.9, 1.0)
-    o = bpy.data.objects.new("window", a); bpy.context.collection.objects.link(o)
-    o.location = ((x0 + x1) / 2, D + 0.12, (z0 + z1) / 2); o.rotation_euler = (math.radians(90), 0, 0); o.visible_camera = False
-    sun = bpy.data.lights.new("sun", "SUN"); sun.energy = 4.0 if after else 0.0; sun.angle = math.radians(2); sun.color = (1.0, 0.93, 0.82)
-    so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so); so.rotation_euler = (math.radians(-62), math.radians(-18), math.radians(0))
-    fill = bpy.data.lights.new("fill", "AREA"); fill.size = 2.5; fill.energy = 140 if after else 90; fill.color = (1.0, 0.92, 0.82) if after else (0.9, 0.93, 1.0)
-    fo = bpy.data.objects.new("fill", fill); bpy.context.collection.objects.link(fo); fo.location = (0, 0.4, H - 0.05); fo.rotation_euler = (0, 0, 0); fo.visible_camera = False
+    a = light("window", "AREA", 700 if after else 300, (1.0, 0.8, 0.6) if after else (0.85, 0.9, 1.0),
+              ((x0 + x1) / 2, D + 0.12, (z0 + z1) / 2), (math.radians(90), 0, 0))
+    a.shape = "RECTANGLE"; a.size, a.size_y = x1 - x0, z1 - z0
     if after:
-        bulb = bpy.data.lights.new("pendant", "POINT"); bulb.energy = 60; bulb.color = (1.0, 0.78, 0.5); bulb.shadow_soft_size = 0.08
-        bo = bpy.data.objects.new("pendant", bulb); bpy.context.collection.objects.link(bo); bo.location = (-0.55, D - 1.65, H - 0.85)
+        sun = bpy.data.lights.new("sun", "SUN"); sun.energy = 3.0; sun.angle = math.radians(3); sun.color = (1.0, 0.7, 0.45)
+        so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so); so.rotation_euler = (math.radians(-72), math.radians(-30), 0)
+        light("floorlamp", "POINT", 90, (1.0, 0.72, 0.42), (SOFA_X - 1.0, D - 0.45, 1.35), size=0.12)
+        light("pendant", "POINT", 45, (1.0, 0.75, 0.45), (SOFA_X, D - 1.55, H - 0.75), size=0.1)
+        light("fill", "AREA", 70, (1.0, 0.85, 0.7), (0, 0.6, H - 0.05), size=3.0)
+    else:
+        light("fill", "AREA", 110, (0.9, 0.93, 1.0), (0, 0.6, H - 0.05), size=3.0)
 
 def camera():
     c = bpy.data.cameras.new("cam"); c.lens = 22; c.sensor_width = 36
     o = bpy.data.objects.new("cam", c); bpy.context.collection.objects.link(o)
-    o.location = (-1.25, -0.55, 1.35)
-    target = Vector((0.15, D - 0.9, 0.95)); d = target - o.location
+    o.location = (-1.0, -0.6, 1.35)
+    target = Vector((0.1, D - 0.9, 1.0)); d = target - o.location
     o.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
     bpy.context.scene.camera = o
 
 def render(after, name):
     reset(); room(after); desk()
-    bpy.context.scene.view_settings.exposure = 0.0 if after else -0.9
     if after: furniture()
     lights(after); camera()
-    s = bpy.context.scene; s.render.filepath = os.path.join(OUT, name); bpy.ops.render.render(write_still=True)
+    s = bpy.context.scene; s.view_settings.exposure = 0.0 if after else -0.6
+    s.render.filepath = os.path.join(OUT, name); bpy.ops.render.render(write_still=True)
 
 render(False, "room-before.png")
 render(True, "room-after.png")
