@@ -90,7 +90,6 @@ def landscape(w, h, split_at=0.5):
     """Before and after, side by side: the bare room on the left (only the real desk), the same room redesigned on
     the right. The split sits past the desk so the redesigned side shows the whole set."""
     split = round(w * split_at); im = split_room(w, h, split); shade_top(im, 0.6)
-    divider(im, split, round(h * 0.58), h)
     size = round(h * 0.024)
     chip(im, round(w * 0.03), round(h * 0.88), "Your room", size, True)
     lab = "In Own Space"; f = ImageFont.truetype(SEMI, size); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * size * 0.7
@@ -111,7 +110,6 @@ def square(s):
     d.text((x0 + 2 * r + gap, s // 2), TITLE, font=f, fill=WHITE, anchor="lm")
     fs = ImageFont.truetype(REG, round(s * 0.034)); line = HEADLINE[0] + " " + HEADLINE[1]
     d.text((s / 2, s // 2 + size * 0.95), line, font=fs, fill=(235, 238, 244), anchor="mm")
-    divider(im, split, round(s * 0.72), s)
     cs = round(s * 0.026)
     chip(im, round(s * 0.03), round(s * 0.9), "Before", cs, True)
     f2 = ImageFont.truetype(SEMI, cs); lw = ImageDraw.Draw(im).textlength("After", font=f2) + 2 * cs * 0.7
