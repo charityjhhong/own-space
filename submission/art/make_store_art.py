@@ -40,10 +40,11 @@ def glass(base, box, radius, tint=(255, 255, 255), alpha=0.58, rim=0.8):
     base.paste(ov, (0, 0), ov)
 
 def mark(draw, cx, cy, r, col=INK, width=None):
-    """The Own Space mark: a ring (the room) with a small dot (you), off centre."""
-    width = width or max(3, r // 7)
-    draw.ellipse((cx - r, cy - r, cx + r, cy + r), outline=col, width=width)
-    d = r // 3; draw.ellipse((cx + r // 5 - d, cy + r // 6 - d, cx + r // 5 + d, cy + r // 6 + d), fill=col)
+    """The Own Space mark (B3): a house, the left half an outline (the real room), the right half filled (designed)."""
+    width = width or max(3, round(r / 7))
+    pts = [(cx - r, cy + r * 0.9), (cx - r, cy - r * 0.12), (cx, cy - r), (cx + r, cy - r * 0.12), (cx + r, cy + r * 0.9)]
+    draw.polygon([(cx, cy - r), (cx + r, cy - r * 0.12), (cx + r, cy + r * 0.9), (cx, cy + r * 0.9)], fill=col)
+    draw.line(pts + [pts[0], pts[1]], fill=col, width=width, joint="curve")
 
 def wordmark(draw, cx, cy, size, col=INK, with_mark=True):
     f = ImageFont.truetype(FONT, size); text = "Own Space"

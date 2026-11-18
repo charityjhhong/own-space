@@ -2,8 +2,8 @@
   before: the room as it is: bare grey walls and floor, flat cool light, only the real desk.
   after:  the same room made your own: oak floor, warm walls, curtains, a sofa under framed art, plants, a floor lamp,
           a rug and a coffee table, in warm evening light. All furniture is the app's own CC0 set (Poly Haven).
-The real desk is identical in both. The camera puts the desk and window in the left half and the sofa corner in the
-right half, so a 50/50 split reads as before | after.
+The real desk is identical in both. The sofa sits on the image centre, so a 50/50 split shows half a room with no
+sofa (before) and half a room with it (after); the framed art hangs on the right wall.
 Run (about 3 to 6 minutes on Apple silicon):
   /Applications/Blender.app/Contents/MacOS/Blender -b -P submission/art/render_room.py -- <out-dir> [samples]
 Writes <out-dir>/room-before.png and room-after.png (1600 x 1200). make_post_art.py builds the thumbnails from them."""
@@ -20,7 +20,7 @@ os.makedirs(OUT, exist_ok=True)
 
 W, D, H = 4.8, 4.4, 2.6           # room width (x), depth (y), height (z); back wall at y = D
 WIN = (-1.75, -0.45, 0.85, 2.25)   # window on the back wall, left half: x0, x1, z0, z1
-SOFA_X = 0.95                      # the sofa corner, right half
+SOFA_X = 0.2                       # the sofa sits on the image centre: the split cuts it in half
 
 def reset():
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -149,13 +149,12 @@ def desk():
 def furniture():
     y = D - 0.5
     model("sofa_02", "sofa-cafe-01.obj", (SOFA_X, y, 0), yaw=180)
-    model("hanging_picture_frame_02", "wall-art-warm-wood-01.obj", (SOFA_X - 0.45, D - 0.03, 1.6), on_wall=True)
-    model("hanging_picture_frame_01", "wall-art-scandi-01.obj", (SOFA_X + 0.45, D - 0.03, 1.65), on_wall=True)
+    model("hanging_picture_frame_02", "wall-art-warm-wood-01.obj", (W / 2 - 0.03, D - 1.05, 1.6), yaw=-90, on_wall=True)
+    model("hanging_picture_frame_01", "wall-art-scandi-01.obj", (W / 2 - 0.03, D - 2.0, 1.65), yaw=-90, on_wall=True)
     model("modern_coffee_table_01", "coffee-table-warm-wood-01.obj", (SOFA_X, D - 1.55, 0))
     model("potted_plant_04", "clutter-plant-cafe-01.obj", (SOFA_X + 0.05, D - 1.55, 0.42), height=0.35)
     model("potted_plant_04", "clutter-plant-cafe-01.obj", (W / 2 - 0.4, D - 0.4, 0), height=1.4)
-    model("potted_plant_04", "clutter-plant-cafe-01.obj", (-0.15, D - 0.35, 0), height=0.9)
-    model("lampRoundFloor", "lamp-scandi-01.obj", (SOFA_X - 1.0, D - 0.45, 0), height=1.5, glow=6.0)
+    model("lampRoundFloor", "lamp-scandi-01.obj", (SOFA_X + 1.1, D - 0.4, 0), height=1.5, glow=6.0)
     model("mid_century_lounge_chair", "armchair-cafe-01.obj", (W / 2 - 0.65, D - 2.15, 0), yaw=-125)
     model("modern_ceiling_lamp_01", "pendant-warm-wood-01.obj", (SOFA_X, D - 1.55, H - 0.6))
     rugf = os.path.join(ART, "Fabrics", "Tex", "rug_wool")
@@ -182,7 +181,7 @@ def lights(after):
     if after:
         sun = bpy.data.lights.new("sun", "SUN"); sun.energy = 3.0; sun.angle = math.radians(3); sun.color = (1.0, 0.7, 0.45)
         so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so); so.rotation_euler = (math.radians(-72), math.radians(-30), 0)
-        light("floorlamp", "POINT", 90, (1.0, 0.72, 0.42), (SOFA_X - 1.0, D - 0.45, 1.35), size=0.12)
+        light("floorlamp", "POINT", 90, (1.0, 0.72, 0.42), (SOFA_X + 1.1, D - 0.4, 1.35), size=0.12)
         light("pendant", "POINT", 45, (1.0, 0.75, 0.45), (SOFA_X, D - 1.55, H - 0.75), size=0.1)
         light("fill", "AREA", 70, (1.0, 0.85, 0.7), (0, 0.6, H - 0.05), size=3.0)
     else:

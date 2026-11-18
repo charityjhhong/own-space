@@ -66,9 +66,13 @@ def shade_top(im, frac):
     for y in range(band): gd.line([(0, y), (w, y)], fill=round(232 * (1 - y / band) ** 1.1))
     im.paste((8, 10, 16), mask=g)
 
-def mark(d, cx, cy, r, col):
-    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=col, width=max(3, r // 7))
-    k = r // 3; d.ellipse((cx + r // 5 - k, cy + r // 6 - k, cx + r // 5 + k, cy + r // 6 + k), fill=col)
+def mark(d, cx, cy, r, col, width=None):
+    """The Own Space mark (B3): a house, the left half an outline (the real room), the right half filled (designed)."""
+    draw = d
+    width = width or max(3, round(r / 7))
+    pts = [(cx - r, cy + r * 0.9), (cx - r, cy - r * 0.12), (cx, cy - r), (cx + r, cy - r * 0.12), (cx + r, cy + r * 0.9)]
+    draw.polygon([(cx, cy - r), (cx + r, cy - r * 0.12), (cx + r, cy + r * 0.9), (cx, cy + r * 0.9)], fill=col)
+    draw.line(pts + [pts[0], pts[1]], fill=col, width=width, joint="curve")
 
 def text_block(im, x, y, title_px, head_px, sub_px, align="l", subs=True):
     d = ImageDraw.Draw(im)
