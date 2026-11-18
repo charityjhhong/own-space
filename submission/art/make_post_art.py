@@ -86,26 +86,21 @@ def text_block(im, x, y, title_px, head_px, sub_px, align="l", subs=True):
     yy += head_px * 0.35
     for line in ((SUB, SUB2) if subs else ()): put(line, fs, yy, (225, 230, 240)); yy += sub_px * 1.4
 
-def landscape(w, h):
-    """The redesigned room full-bleed; the same room as it is, small, as a "before" card in the corner."""
-    im = rendered("room-after.png", w, h); shade_top(im, 0.6)
-    cw = round(w * 0.24); ch = round(cw * 0.75); x0 = round(w * 0.04); y0 = round(h * 0.94) - ch
-    card = ImageEnhance.Color(rendered("room-before.png", cw, ch)).enhance(0.3)
-    sh = Image.new("L", (w, h), 0); ImageDraw.Draw(sh).rounded_rectangle((x0 + 6, y0 + 14, x0 + cw + 6, y0 + ch + 14), round(ch * 0.08), fill=150)
-    im.paste((0, 0, 0), mask=sh.filter(ImageFilter.GaussianBlur(round(ch * 0.08))))
-    m = Image.new("L", (cw, ch), 0); ImageDraw.Draw(m).rounded_rectangle((0, 0, cw - 1, ch - 1), round(ch * 0.08), fill=255)
-    im.paste(card, (x0, y0), m)
-    ImageDraw.Draw(im).rounded_rectangle((x0, y0, x0 + cw, y0 + ch), round(ch * 0.08), outline=(255, 255, 255), width=max(2, w // 640))
-    size = round(h * 0.022)
-    chip(im, x0 + round(size * 0.6), y0 + round(size * 0.6), "Before: your room", size, True)
-    lab = "After: in Own Space"; f = ImageFont.truetype(SEMI, size); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * size * 0.7
-    chip(im, round(w * 0.96 - lw), round(h * 0.94 - size * 2.0), lab, size, False)
+def landscape(w, h, split_at=0.27):
+    """Before and after, side by side: the bare room on the left (only the real desk), the same room redesigned on
+    the right. The split sits past the desk so the redesigned side shows the whole set."""
+    split = round(w * split_at); im = split_room(w, h, split); shade_top(im, 0.6)
+    divider(im, split, round(h * 0.58), h)
+    size = round(h * 0.024)
+    chip(im, round(w * 0.03), round(h * 0.88), "Your room", size, True)
+    lab = "In Own Space"; f = ImageFont.truetype(SEMI, size); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * size * 0.7
+    chip(im, round(w * 0.97 - lw), round(h * 0.88), lab, size, False)
     text_block(im, round(w * 0.06), round(h * 0.07), round(h * 0.055), round(h * 0.075), round(h * 0.031))
     return im
 
 def square(s):
-    """The app thumbnail: the redesigned room, and the name large in the centre on a glass band."""
-    im = rendered("room-after.png", s, s)
+    """The app thumbnail: before and after split (the bare room left, past the desk), the name large in the centre."""
+    split = round(s * 0.24); im = split_room(s, s, split)
     band = Image.new("L", (s, s), 0); bd = ImageDraw.Draw(band)
     for y in range(s):
         t = abs(y - s * 0.5) / (s * 0.5); bd.line([(0, y), (s, y)], fill=round(175 * max(0.0, 1 - t * 1.5) ** 1.3))
@@ -116,6 +111,11 @@ def square(s):
     d.text((x0 + 2 * r + gap, s // 2), TITLE, font=f, fill=WHITE, anchor="lm")
     fs = ImageFont.truetype(REG, round(s * 0.034)); line = HEADLINE[0] + " " + HEADLINE[1]
     d.text((s / 2, s // 2 + size * 0.95), line, font=fs, fill=(235, 238, 244), anchor="mm")
+    divider(im, split, round(s * 0.72), s)
+    cs = round(s * 0.026)
+    chip(im, round(s * 0.03), round(s * 0.9), "Before", cs, True)
+    f2 = ImageFont.truetype(SEMI, cs); lw = ImageDraw.Draw(im).textlength("After", font=f2) + 2 * cs * 0.7
+    chip(im, round(s * 0.97 - lw), round(s * 0.9), "After", cs, False)
     return im
 
 def main():
