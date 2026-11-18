@@ -32,11 +32,19 @@ namespace OwnSpace.Core
         /// </summary>
         public IReadOnlyList<string> LastParseErrors { get; private set; } = Array.Empty<string>();
 
+        /// <summary>
+        /// The longest proxy answer read (security pass): a plan is a few kilobytes; anything far larger is refused
+        /// before parsing, so a wrong or hostile endpoint cannot make the app parse megabytes of JSON.
+        /// </summary>
+        public const int MaxResponseChars = 65536;
+
         public async Task<AssistantPlan> RequestAsync(AssistantRequest request, CancellationToken cancellationToken)
         {
             string body = AssistantRequestJson.Build(request, _finishIds, _moodIds);
             string response = await _transport.PostJsonAsync(body, cancellationToken).ConfigureAwait(false);
             cancellationToken.ThrowIfCancellationRequested();
+
+            if (response != null && response.Length > MaxResponseChars) throw new FormatException("assistant: the proxy answer is too large");
 
             string planText;
             try

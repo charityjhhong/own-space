@@ -9,22 +9,22 @@
 
 ![Own Space: the room you can't change, made your own](submission/art/post/post-landscape-1920x1080.png)
 
-**The room you can't change, made your own.** Own Space redesigns your dorm, rental or hotel room around you on Meta Quest, with your hands only, while your real desk and laptop stay real and within reach.
+**The room you can't change, made your own.** Own Space redesigns your dorm, rental or hotel room around you on Meta Quest, with your hands only, while your real desk stays real and within reach.
 
 **688 EditMode tests · 72 Hz target · hands only, no controllers · AI places catalog pieces only, never camera images**
 
-Scan your room and mark the part you use: your desk and your laptop stay real and within reach. Everything else becomes a virtual room you design with your hands: walls, floor, furniture and light. Your real desk or bed keeps its place and height under a new look. Then keep the room running in the background while you work on your laptop, watch YouTube, or use Meta's virtual displays. Save the room, and open it again anywhere, at a hotel desk or in a dorm.
+Scan your room and mark the part you use: your desk stays real and within reach. Everything else becomes a virtual room you design with your hands: walls, floor, furniture and light. Your real desk or bed keeps its place and height under a new look. Then keep the room running in the background while you work on your laptop, watch YouTube, or use Meta's virtual displays. Save the room, and open it again anywhere, at a hotel desk or in a dorm.
 
 ## Features
 
 - **Room scan and my zone.** The app reads the Quest room scan and proposes the area you use, around your desk or bed. Adjust its corners with a pinch. Inside it, everything stays real.
-- **My room.** Pick a new design for your real desk, bed or closet. It keeps the real piece's footprint and usable height, so your laptop and mug stay where they are.
+- **My room.** Pick a new design for your real desk, bed or closet. It keeps the real piece's footprint and usable height, so it stays just as usable.
 - **Style.** One finish for the floor and one for the walls covers the whole room, my zone included, or keep any surface real.
 - **Add.** Pick a piece and pinch the floor. If the spot doesn't work, the app suggests the nearest one that does: against a wall, or on open floor facing you.
 - **AI room design.** Type a request or tap a style. The AI furnishes the virtual room with catalog pieces only: one piece of each kind, and never a second copy of a kind you placed yourself. A new style replaces the last one, and one Undo brings it back.
 - **Tidy up.** Draw a box over laundry or clutter in your zone, and cover it with the floor or a prop.
 - **Moods.** Morning, afternoon, evening or night. The virtual lights and the passthrough tint change together, and virtual surfaces are tone-matched to the real room so the two read as one space.
-- **A background room.** Open the Meta menu, YouTube or your laptop's virtual display: Own Space hides its tools and keeps your room around you.
+- **A background room.** Open the Meta menu, YouTube or Meta's virtual displays: Own Space hides its tools and keeps your room around you.
 - **Saved spaces.** Save a room, and open it anywhere: it is rebuilt around the desk or bed you're at, and your zone and changes come back next visit. A built-in sample room needs no scan.
 - **Hands only.** Pinch, grab and poke. No controllers, and every action answers with a highlight or animation.
 
@@ -76,7 +76,9 @@ You need a Meta Quest 3 or 3S with hand tracking on.
 
 - **Seated use.** Real furniture outside your zone is hidden behind the virtual room. Stay seated, and keep the Quest boundary on.
 - **AI needs a network**, and places catalog pieces only. It does not generate 3D models.
-- **Meta's system windows** (the Meta menu, YouTube, the laptop virtual display) draw over the app's panel. That is Meta's layer, not ours.
+- **Meta's system windows** (the Meta menu, YouTube, virtual displays) draw over the app's panel. That is Meta's layer, not ours.
+- **Shared rooms.** A person who walks in outside your zone is not shown. Tell people around you, and take the headset off to talk.
+- **Privacy.** No microphone, no camera images, no account. Only an AI request leaves the headset: your typed text, room outlines and catalog ids, sent to Google's Gemini through our Worker. Don't type private information into it.
 - **A saved space is a snapshot** of the room when you saved it. Save again to include later changes.
 
 ## Building from source

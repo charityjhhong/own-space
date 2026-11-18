@@ -36,8 +36,10 @@ namespace OwnSpace.Tests
         [TestCase("not json")]
         [TestCase("{\"error\":\"rate_limited\"}")]
         [TestCase("{\"plan\":\"Sorry, I cannot help.\"}")]
+        [TestCase(null)] // too large: filled in below
         public void ProxyAssistant_UnreadableAnswer_Throws(string answer)
         {
+            answer ??= "{\"plan\":\"" + new string('x', ProxyDesignAssistant.MaxResponseChars) + "\"}"; // security pass: an oversized answer
             var assistant = new ProxyDesignAssistant(new FakeAssistantTransport { Answer = answer }, Finishes, Moods);
             var e = Assert.Throws<AggregateException>(() => assistant.RequestAsync(Request(), CancellationToken.None).Wait());
             Assert.IsInstanceOf<FormatException>(e.InnerException);

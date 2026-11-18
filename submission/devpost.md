@@ -1,5 +1,7 @@
 # Devpost submission
 
+**Superseded:** the text to paste is `submission/devpost-form.md` (current features, no laptop claim, sourced inspiration). This file is the earlier draft, kept for history.
+
 Standard Devpost sections, English. Items marked **[confirm]** are facts to check on the device or on the form before submitting. Everything described is in the build on `main`.
 
 - **Project name:** Own Space

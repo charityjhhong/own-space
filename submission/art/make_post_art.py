@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Draws the Own Space post thumbnails (own artwork, CC0; font Inter, SIL OFL, Art/Fonts): a 1:1 square and a 16:9 landscape
 (the app thumbnail) and a 16:9 landscape (posts: Devpost, YouTube, social), plus GitHub's 2:1 social preview. Unlike the store covers these carry the tagline.
-Concept: one room, split. Left, the room as it is (grey, dim, closed in); right, the same room redesigned in Own Space.
-Run: python3 submission/art/make_post_art.py        (needs pillow; the room backdrop comes from docs/design/ui)
+Concept: one room, split. Left, the room as it is (bare, grey, dim); right, the same room redesigned in Own Space.
+The rooms are 3D renders of the app's own CC0 furniture: run render_room.py in Blender first (it writes post/render/).
+Run: python3 submission/art/make_post_art.py        (needs pillow)
 Deterministic: a rerun writes identical files."""
 import os, sys
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
@@ -15,7 +16,7 @@ SEMI, REG = os.path.join(FONTS, "Inter-SemiBold.ttf"), os.path.join(FONTS, "Inte
 WHITE, INK = (255, 255, 255), (14, 21, 32)
 TITLE = "Own Space"
 HEADLINE = ["The room you can't change,", "made your own."]
-SUB = "Redesign your dorm, rental or hotel room on Meta Quest."
+SUB = "Redesign your dorm, rental or hotel room on Meta Quest."  # no laptop claim: the human, the desk is the point
 SUB2 = "Hands only. Your real desk stays real."
 
 def cover_fit(im, w, h):
@@ -24,19 +25,15 @@ def cover_fit(im, w, h):
     l, t = (im.width - w) // 2, (im.height - h) // 2
     return im.crop((l, t, l + w, t + h))
 
+RENDER = os.path.join(HERE, "post", "render")
+
+def rendered(name, w, h):
+    return cover_fit(Image.open(os.path.join(RENDER, name)).convert("RGB"), w, h)
+
 def split_room(w, h, split):
-    """The same room twice: as it is on the left (grey, dim, walls closing in), redesigned on the right (warm, open)."""
-    after = cover_fit(Image.open(os.path.join(UI, "room-bright.jpg")).convert("RGB"), w, h)
-    after = ImageEnhance.Color(after).enhance(1.25)
-    after = ImageEnhance.Brightness(after).enhance(1.06)
-    before = ImageOps.grayscale(after).convert("RGB")
-    before = ImageEnhance.Brightness(before).enhance(0.55)
-    before = ImageEnhance.Contrast(before).enhance(0.75).filter(ImageFilter.GaussianBlur(2))
-    # walls closing in: a dark frame on the "before" side
-    frame = Image.new("L", (w, h), 0); fd = ImageDraw.Draw(frame)
-    fd.rectangle((0, 0, w, h), fill=170); fd.rounded_rectangle((round(w * 0.06), round(h * 0.10), round(w * 0.94), round(h * 0.92)), round(h * 0.04), fill=0)
-    frame = frame.filter(ImageFilter.GaussianBlur(round(h * 0.06)))
-    before.paste((10, 12, 16), mask=frame)
+    """The same room twice: as it is on the left (bare, grey), redesigned on the right; the real desk is in both."""
+    after = rendered("room-after.png", w, h)
+    before = ImageEnhance.Color(rendered("room-before.png", w, h)).enhance(0.3)
     # soft vertical blend at the split
     mask = Image.new("L", (w, h), 0); px = mask.load(); feather = max(2, round(w * 0.012))
     for x in range(w):
@@ -90,21 +87,35 @@ def text_block(im, x, y, title_px, head_px, sub_px, align="l", subs=True):
     for line in ((SUB, SUB2) if subs else ()): put(line, fs, yy, (225, 230, 240)); yy += sub_px * 1.4
 
 def landscape(w, h):
-    split = round(w * 0.5); im = split_room(w, h, split); shade_top(im, 0.62)
-    divider(im, split, round(h * 0.62), h)
-    chip(im, round(w * 0.04), round(h * 0.88), "Your room", round(h * 0.024), True)
-    lab = "In Own Space"; f = ImageFont.truetype(SEMI, round(h * 0.024)); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * h * 0.024 * 0.7
-    chip(im, round(w * 0.96 - lw), round(h * 0.88), lab, round(h * 0.024), False)
+    """The redesigned room full-bleed; the same room as it is, small, as a "before" card in the corner."""
+    im = rendered("room-after.png", w, h); shade_top(im, 0.6)
+    cw = round(w * 0.24); ch = round(cw * 0.75); x0 = round(w * 0.04); y0 = round(h * 0.94) - ch
+    card = ImageEnhance.Color(rendered("room-before.png", cw, ch)).enhance(0.3)
+    sh = Image.new("L", (w, h), 0); ImageDraw.Draw(sh).rounded_rectangle((x0 + 6, y0 + 14, x0 + cw + 6, y0 + ch + 14), round(ch * 0.08), fill=150)
+    im.paste((0, 0, 0), mask=sh.filter(ImageFilter.GaussianBlur(round(ch * 0.08))))
+    m = Image.new("L", (cw, ch), 0); ImageDraw.Draw(m).rounded_rectangle((0, 0, cw - 1, ch - 1), round(ch * 0.08), fill=255)
+    im.paste(card, (x0, y0), m)
+    ImageDraw.Draw(im).rounded_rectangle((x0, y0, x0 + cw, y0 + ch), round(ch * 0.08), outline=(255, 255, 255), width=max(2, w // 640))
+    size = round(h * 0.022)
+    chip(im, x0 + round(size * 0.6), y0 + round(size * 0.6), "Before: your room", size, True)
+    lab = "After: in Own Space"; f = ImageFont.truetype(SEMI, size); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * size * 0.7
+    chip(im, round(w * 0.96 - lw), round(h * 0.94 - size * 2.0), lab, size, False)
     text_block(im, round(w * 0.06), round(h * 0.07), round(h * 0.055), round(h * 0.075), round(h * 0.031))
     return im
 
 def square(s):
-    split = round(s * 0.5); im = split_room(s, s, split); shade_top(im, 0.55)
-    divider(im, split, round(s * 0.5), s)
-    chip(im, round(s * 0.05), round(s * 0.9), "Your room", round(s * 0.024), True)
-    lab = "In Own Space"; f = ImageFont.truetype(SEMI, round(s * 0.024)); lw = ImageDraw.Draw(im).textlength(lab, font=f) + 2 * s * 0.024 * 0.7
-    chip(im, round(s * 0.95 - lw), round(s * 0.9), lab, round(s * 0.024), False)
-    text_block(im, s // 2, round(s * 0.09), round(s * 0.075), round(s * 0.066), round(s * 0.03), align="c", subs=False)
+    """The app thumbnail: the redesigned room, and the name large in the centre on a glass band."""
+    im = rendered("room-after.png", s, s)
+    band = Image.new("L", (s, s), 0); bd = ImageDraw.Draw(band)
+    for y in range(s):
+        t = abs(y - s * 0.5) / (s * 0.5); bd.line([(0, y), (s, y)], fill=round(175 * max(0.0, 1 - t * 1.5) ** 1.3))
+    im.paste((10, 12, 18), mask=band)
+    d = ImageDraw.Draw(im); size = round(s * 0.115); f = ImageFont.truetype(SEMI, size)
+    tw = d.textlength(TITLE, font=f); r = round(size * 0.42); gap = round(r * 0.7); total = 2 * r + gap + tw; x0 = (s - total) / 2
+    mark(d, round(x0 + r), s // 2, r, WHITE)
+    d.text((x0 + 2 * r + gap, s // 2), TITLE, font=f, fill=WHITE, anchor="lm")
+    fs = ImageFont.truetype(REG, round(s * 0.034)); line = HEADLINE[0] + " " + HEADLINE[1]
+    d.text((s / 2, s // 2 + size * 0.95), line, font=fs, fill=(235, 238, 244), anchor="mm")
     return im
 
 def main():
