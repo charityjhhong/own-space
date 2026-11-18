@@ -7,9 +7,11 @@
 ![Cloudflare Workers + Gemini](https://img.shields.io/badge/Cloudflare_Workers-Gemini-F38020?logo=cloudflare&logoColor=white)
 ![Meta VR Start Developer Competition](https://img.shields.io/badge/Meta_VR_Start-Developer_Competition-1C2B33)
 
-**Own your space. A space of your own.** Own Space redesigns your real room around you on Meta Quest, and keeps your real desk in reach.
+![Own Space: the room you can't change, made your own](submission/art/post/post-landscape-1920x1080.png)
 
-[Devpost](TBD)
+**The room you can't change, made your own.** Own Space redesigns your dorm, rental or hotel room around you on Meta Quest, with your hands only, while your real desk and laptop stay real and within reach.
+
+**688 EditMode tests · 72 Hz target · hands only, no controllers · AI places catalog pieces only, never camera images**
 
 Scan your room and mark the part you use: your desk and your laptop stay real and within reach. Everything else becomes a virtual room you design with your hands: walls, floor, furniture and light. Your real desk or bed keeps its place and height under a new look. Then keep the room running in the background while you work on your laptop, watch YouTube, or use Meta's virtual displays. Save the room, and open it again anywhere, at a hotel desk or in a dorm.
 
@@ -22,9 +24,8 @@ Scan your room and mark the part you use: your desk and your laptop stay real an
 - **AI room design.** Type a request or tap a style. The AI furnishes the virtual room with catalog pieces only: one piece of each kind, and never a second copy of a kind you placed yourself. A new style replaces the last one, and one Undo brings it back.
 - **Tidy up.** Draw a box over laundry or clutter in your zone, and cover it with the floor or a prop.
 - **Moods.** Morning, afternoon, evening or night. The virtual lights and the passthrough tint change together, and virtual surfaces are tone-matched to the real room so the two read as one space.
-- **Focus mode.** One button hides the panel, rays and outlines. The room, the furniture and your real desk stay, as a calm background for real work.
-- **Saved spaces.** Save a room, and open it anywhere: it is rebuilt around the desk or bed you're at. A built-in sample room needs no scan.
-- **Guided first run.** Scan, my zone, one piece in My room, then let the AI design the outside or do it yourself. Skip at any step.
+- **A background room.** Open the Meta menu, YouTube or your laptop's virtual display: Own Space hides its tools and keeps your room around you.
+- **Saved spaces.** Save a room, and open it anywhere: it is rebuilt around the desk or bed you're at, and your zone and changes come back next visit. A built-in sample room needs no scan.
 - **Hands only.** Pinch, grab and poke. No controllers, and every action answers with a highlight or animation.
 
 ## How it works
@@ -69,7 +70,14 @@ You need a Meta Quest 3 or 3S with hand tracking on.
 1. **Install.** Open the Invite link on the Devpost page while signed in to your Meta account, accept it, and install Own Space from the headset library. Developers can sideload an APK instead: `adb install -r ownspace-v<version>-<commit>.apk`.
 2. **Scan the room.** Run Space Setup in the Quest settings if the room has no scan, or pick **Use sample room** in the app.
 3. **Allow spatial data** when the app asks: it needs the room scan. The app doesn't use the microphone, and no camera images leave the headset.
-4. **Follow the guided first run**, then use the panel beside your right hand. The AI design needs a network; everything else works offline.
+4. **Confirm your zone** around your desk, then use the panel beside your right hand: pinch with a hand ray, or poke it when it's close. The AI design needs a network; everything else works offline.
+
+## Known limits
+
+- **Seated use.** Real furniture outside your zone is hidden behind the virtual room. Stay seated, and keep the Quest boundary on.
+- **AI needs a network**, and places catalog pieces only. It does not generate 3D models.
+- **Meta's system windows** (the Meta menu, YouTube, the laptop virtual display) draw over the app's panel. That is Meta's layer, not ours.
+- **A saved space is a snapshot** of the room when you saved it. Save again to include later changes.
 
 ## Building from source
 
@@ -78,4 +86,4 @@ You need a Meta Quest 3 or 3S with hand tracking on.
 - **Tests:** `.github/scripts/unity-check.sh` compiles in batch mode and runs the EditMode tests. CI runs them on every PR.
 - **AI proxy:** in `proxy/`, run `npm install` and `npm test`. Store the Gemini key with `npx wrangler secret put GEMINI_API_KEY`, then run `npx wrangler deploy`. The key lives only as a Worker secret, never in the repo or the app. See [proxy/README.md](proxy/README.md).
 
-Repo rules and the way the team works are in [AGENTS.md](AGENTS.md). The demo plan is in [docs/demo/](docs/demo/).
+Own Space was built by four AI coding agents working in parallel, each owning its own folders (core, XR, build, content), with one human making the decisions and testing on the headset. The rules they followed are in [AGENTS.md](AGENTS.md). The demo plan is in [docs/demo/](docs/demo/).
