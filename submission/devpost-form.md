@@ -12,10 +12,10 @@ One block per field, in the order the form asks. Personal fields (email, country
 Own Space
 ```
 
-**Elevator pitch** (200 characters)
+**Elevator pitch** (140 characters, from the rules)
 
 ```
-The room you can't change, made your own. Redesign your dorm, rental or hotel room on Meta Quest with your hands, while your real desk stays real and within reach.
+The room you can't change, made your own. Redesign your dorm or rental on Meta Quest with your hands, while your real desk stays real.
 ```
 
 **Thumbnail** (3:2): `submission/art/post/devpost-thumbnail-1500x1000.png`
@@ -24,78 +24,42 @@ The room you can't change, made your own. Redesign your dorm, rental or hotel ro
 
 ## 3. Project details
 
-**About the project** (Markdown)
+**About the project** (Markdown, under 500 words as the rules suggest)
 
 ```markdown
 ## Inspiration
 
-Most of us study, work and rest in rooms we can't change. A shared dorm, a rental with rules, a hotel for a week. The walls aren't ours, there's no space for the furniture we want, and repainting isn't an option.
+Most of us study, work and rest in rooms we can't change: a shared dorm, a rental with rules, a hotel for a week. We wanted a space you can change into what you want, where you can study or rest with an easy mind because it feels like yours, while the desk you actually use stays real.
 
-We wanted a space you change into what you want: a room where you can study or rest with an easy mind, because it feels like yours. And the real part you use, your desk, stays exactly as it is.
-
-It isn't only comfort. Research on workspaces points the same way:
-
-- People who arranged and decorated their own workspace were up to **32% more productive** than in a bare "lean" office, without more errors, and reported better well-being (Knight & Haslam, 2010, *Journal of Experimental Psychology: Applied*).
-- Adding plants to bare offices raised productivity by about **15%** and improved concentration and workplace satisfaction (Nieuwenhuis, Knight, Postmes & Haslam, 2014, *Journal of Experimental Psychology: Applied*).
-
-These studies are about real offices, and we haven't measured Own Space's own effect; they are why we built it, not a claim about the app. Most people can't rebuild their room to get that. Own Space lets them choose the space they study and rest in, without changing anything that belongs to someone else.
-
-Sources: [Knight & Haslam 2010](https://pubmed.ncbi.nlm.nih.gov/20565201/), [University of Exeter summary](https://www.sciencedaily.com/releases/2010/09/100907104035.htm), [Nieuwenhuis et al. 2014](https://research.utwente.nl/en/publications/the-relative-benefits-of-green-versus-lean-office-space-three-fie/).
+Research on workspaces points the same way. People who decorated their own workspace were up to **32% more productive** than in a bare office, with better well-being ([Knight & Haslam, 2010](https://pubmed.ncbi.nlm.nih.gov/20565201/)). Adding plants raised productivity by about **15%** and improved concentration ([Nieuwenhuis et al., 2014](https://research.utwente.nl/en/publications/the-relative-benefits-of-green-versus-lean-office-space-three-fie/)). These are office studies, not measurements of our app, but they are why we built it.
 
 ## What it does
 
-Own Space is a seated, hands-only mixed reality app for Meta Quest 3 and 3S. It turns the room you can't change into a room you design, while your real desk stays real.
+Own Space is a seated, hands-only mixed reality app for Meta Quest 3 and 3S.
 
-- **Scan and my zone.** Own Space reads the Quest room scan and keeps the area you use real: your desk and your hands. Everything around it becomes a virtual room at your room's real size, or bigger.
-- **My room.** Give your real desk or bed a new design. It keeps the real piece's footprint and height, so it stays just as usable.
-- **Style.** One floor and one wall finish for the whole room, with baseboards and crown molding.
-- **Moods.** Morning, afternoon, evening or night. The virtual light and the passthrough are tone-matched so the real and virtual parts read as one room.
-- **Add.** Pick a piece and point at the floor. If the spot doesn't fit, Own Space suggests the nearest one that does, and the piece pulses there until you pinch to confirm.
-- **AI design.** Type a request or tap a style. The AI furnishes the room with catalog pieces only, one of each kind, facing you, never duplicating what you placed yourself. One Undo brings back the last look.
-- **Tidy up.** Draw a box over laundry or clutter and cover it with a basket, a plant or the floor.
-- **Saved spaces.** Save your room and open it anywhere: at a hotel desk or back home, it is rebuilt around the desk you're at, with your zone and changes kept.
-- **A background room.** Open the Meta menu, YouTube or Meta's virtual displays: Own Space steps back and keeps your room around you while you work.
+- **My zone:** it reads the Quest room scan and keeps your desk area real. Everything around it becomes a virtual room at your room's size, or bigger.
+- **My room:** give your real desk or bed a new look that keeps its footprint and height.
+- **Style and moods:** floor and wall finishes, baseboards and crown molding; morning to night light, tone-matched to the real room.
+- **Add:** place furniture by pointing; if a spot doesn't fit, the nearest one that does is suggested.
+- **AI design:** type a request; the AI places catalog pieces only, facing you, and one Undo reverts it.
+- **Tidy up:** cover clutter with a basket, a plant or the floor.
+- **Saved spaces:** save your room and open it again around another desk.
 
 ## How we built it
 
-- **Unity 6 + Meta XR SDK:** passthrough, the Mixed Reality Utility Kit for walls, windows, doors and furniture boxes, and hand tracking.
-- **A pure C# core** holds every rule (zones, the design state, placement and fit rules, saves, the AI plan check), covered by 688 EditMode tests. The MR, interaction and UI layers only draw and take input.
-- **AI through a small Cloudflare Worker** that holds the Gemini key. The app sends text and room geometry only, never camera images, and checks every answer against the catalog before it touches your design.
-- **Built for Quest:** a 72 Hz target, no per-frame allocation, lightweight custom shaders for contact shadows and tone matching, ARM64 only.
-- **CC0 content:** furniture and textures from Poly Haven, Kenney and ambientCG, our own UI and art, the Inter font.
-- **Four AI coding agents in parallel**, each owning its own folders (core, XR, build, content), with one human making the decisions and testing on the headset every day.
+Unity 6 with the Meta XR SDK: passthrough, the Mixed Reality Utility Kit and hand tracking. A pure C# core holds every rule (zones, placement, saves, the AI plan check) with 689 EditMode tests. The AI goes through a Cloudflare Worker that holds the Gemini key; the app sends text and room outlines, never camera images, and checks every answer against the catalog. Furniture and textures are CC0 (Poly Haven, Kenney, ambientCG). Four AI coding agents built it in parallel, each owning its own folders, with one human deciding and testing on the headset daily.
 
-## Safety, privacy and respect for others
+## Safety and privacy
 
-- **Seated by design.** Real furniture outside your zone is hidden by the virtual room, so Own Space is meant to be used sitting at your desk, with the Quest boundary on. A safer view when you stand up is on our list.
-- **Shared rooms.** A roommate who walks in outside your zone is not shown. Use it the way you'd use headphones in a shared room: let people know, and take it off to talk.
-- **Privacy.** No microphone, no camera images, no account data. Saved rooms stay on the headset. Only an AI request leaves it: your typed text, room outlines and catalog ids, through our Worker to Google's Gemini. Don't type private information into it.
-- **Comfort.** Take regular breaks, as with any headset.
+Use it seated with the Quest boundary on: real furniture and people outside your zone are hidden. In a shared room, tell others, as with headphones. No microphone, no camera images, no account; saved rooms stay on the headset.
 
-## Challenges we ran into
+## Challenges
 
-- **Hand-ray accuracy.** A ray from a tracked hand jitters, and a pinch moves the hand. We start the ray at the knuckle, filter it, and use the aim from just before the pinch, so you get what you pointed at.
-- **Real and virtual in one room.** Heights, edges and light must agree with the real room, or the illusion breaks. Real pieces keep their usable height under every new design.
-- **Overlapping room scans.** Two scans of the same room made the app switch designs. It now stays with the room you're in.
-- **System UI over the app.** When the Meta menu or a Meta window takes the input, Own Space hides its tools, keeps its state and comes back cleanly.
-
-## Accomplishments that we're proud of
-
-- A real desk redesigned while it stays the desk you actually use.
-- A room you can carry: save it, and open it again around a different desk.
-- An AI that can only place what exists, and can always be undone.
-- Hands only, start to finish. No controller needed.
-
-## What we learned
-
-Mixed reality is judged by the real things in view. Small, visible rules (keep the real height, one finish, one piece per kind) beat clever generation. Hands-only input needs generous targets and calm feedback.
+A tracked hand ray jitters and a pinch moves the hand, so we start the ray at the knuckle, filter it, and use the aim from just before the pinch. Overlapping room scans made the app switch designs; it now stays with the room you're in.
 
 ## What's next
 
-- Furniture that resizes without stretching (legs stay the same, the top grows).
-- More pieces, made with 3D generation tools and curated before they enter the catalog.
-- Seeing a roommate who walks in, and a safer view when you stand up.
-- Sharing a saved space with a friend.
+Furniture that resizes without stretching, more curated pieces, showing a roommate who walks in, and sharing a saved space with a friend.
 ```
 
 **Built with** (one tag at a time)
